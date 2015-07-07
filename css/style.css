@@ -1,0 +1,78 @@
+@import url(normalize.css);
+@import url(font.css);
+@import url(animate.css);
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: #4e5664;
+  font-family: 'Geeza Pro', Tahoma, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 90%;
+}
+
+.v-center {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+h1 {
+  margin: 0 0 32px 0;
+  color: #3b414b;
+  font-weight: 300;
+  font-size: 8em;
+  font-family: 'JF Flat Light', 'Geeza Pro', Tahoma, sans-serif;
+}
+
+p {
+  font-size: 1.125em;
+}
+
+a {
+  color: #246ee9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.icons a:hover {
+  text-decoration: none;
+}
+
+.icons i {
+  margin-left: 0.5em;
+  font-size: 2em;
+}
+
+.icons .fa {
+  line-height: 1.5 !important;
+}
+
+@media only screen and (max-width : 960px) {
+  h1, .icons {
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: .5em;
+  }
+  .icons {
+    padding-top: 46px;
+  }
+}
