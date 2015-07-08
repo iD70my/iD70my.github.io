@@ -1,1 +1,19 @@
+Package: io.github.id70my.appsyncunifiedbeta
+Version: 5.0-beta-3.1
+Section: Terminal_Support
+Maintainer: iD70my <o@outlook.kr>
+Pre-Depends: firmware (>= 5.0), mobilesubstrate (>= 0.9.5000)
+Depends: mobilesubstrate
+Conflicts: us.hackulo.appsync50, us.hackulo.appsync50plus, com.hackyouriphone.appsync7, com.teiron.ppsync, appsync50plus2.25pp, com.sull.appsyncunified, com.sull.appsyncforios70
+Replaces: us.hackulo.appsync50
+Architecture: iphoneos-arm
+Filename: debs//io.github.id70my.appsyncunifiedbeta_5.0-beta-3.1_iphoneos-arm.deb
+Size: 23306
+MD5sum: 7567dbaa1137289c0568c6ef3b3b6cd4
+Description: الاداة المشهورة لتثبيت التطبيقات المكركة تحتاج ‫(‬لإعادة التشغيل كل مرة‫)‬
+tag: cydia::commercial, ios7support::1, ios8support::1
+depiction: http://asnr.biz/repo/safaridownloader/repo2.html
+homepage: http://asnr.biz/repo/safaridownloader/repo2.html
+name: AppSync Unified iOS 8
+author: iD70my <o@outlook.kr>
 
