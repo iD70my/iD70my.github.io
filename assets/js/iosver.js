@@ -1,6 +1,6 @@
 // Decimation's fork to remove emojis
 
-const VERSION_CHECK_SUPPORTED = "نظام جهازك يدعم الأداة 😊";
+const VERSION_CHECK_SUPPORTED = "😊👍  نظام جهازك يدعم الأداة ✔️ ";
 const VERSION_CHECK_NEEDS_UPGRADE = "Requires at least iOS %s";
 const VERSION_CHECK_UNCONFIRMED = "Not yet tested on iOS %s";
 const VERSION_CHECK_UNSUPPORTED = "Only compatible with iOS %s to %s";
