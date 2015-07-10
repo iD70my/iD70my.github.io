@@ -1,7 +1,7 @@
 // Decimation's fork to remove emojis
 
 const VERSION_CHECK_SUPPORTED = "😁👍  نظام جهازك يدعم الأداة ✔️ ";
-const VERSION_CHECK_NEEDS_UPGRADE = " على الأقل %s  يجب أن يكون نظام جهازك ";
+const VERSION_CHECK_NEEDS_UPGRADE = " يجب أن يكون نظام جهازك %s على الأقل ";
 const VERSION_CHECK_UNCONFIRMED = " %s لم يتم تجربته على النظام ";
 const VERSION_CHECK_UNSUPPORTED = " %s إلى %s متوافق مع النظام ";
 
