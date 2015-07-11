@@ -10,11 +10,11 @@ Architecture: iphoneos-arm
 Filename: debs//io.github.id70my.appsyncunified_5.5.1-1_iphoneos-arm.deb
 Size: 25448
 Installed-Size: 140
-MD5sum: 55f7aec44f1bc60099d397581a57a813
+MD5sum: b59862e7f38b459084b932b2eb57b42d
 Description: الاداة المشهورة لتثبيت التطبيقات المكركة.
-name: AppSync Unified iOS 8
-author: iD70my <o@outlook.kr>
-homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
 depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
+name: AppSync Unified iOS 8
 tag: cydia::commercial, ios8support::1
+homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
+author: iD70my <o@outlook.kr>
 
