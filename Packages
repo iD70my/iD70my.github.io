@@ -8,13 +8,13 @@ Provides: appsync
 Replaces: us.hackulo.appsync50
 Architecture: iphoneos-arm
 Filename: debs//io.github.id70my.appsyncunified_5.5.1-1_iphoneos-arm.deb
-Size: 27134
+Size: 25448
 Installed-Size: 140
-MD5sum: f06d081d5310d889f13c26bf45968406
+MD5sum: 55f7aec44f1bc60099d397581a57a813
 Description: الاداة المشهورة لتثبيت التطبيقات المكركة.
-author: iD70my <o@outlook.kr>
-depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
 name: AppSync Unified iOS 8
+author: iD70my <o@outlook.kr>
 homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
+depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
 tag: cydia::commercial, ios8support::1
 
