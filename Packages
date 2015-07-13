@@ -12,11 +12,26 @@ Size: 25448
 Installed-Size: 140
 MD5sum: b59862e7f38b459084b932b2eb57b42d
 Description: الاداة المشهورة لتثبيت التطبيقات المكركة.
-homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
 author: iD70my <o@outlook.kr>
-depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
-name: AppSync Unified iOS 8
 tag: cydia::commercial, ios8support::1
+depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
+homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
+name: AppSync Unified iOS 8
+
+Package: io.github.id70my.linkstoreios8
+Version: 1.2
+Section: Tweaks
+Maintainer: iD70my <o@outlook.kr>
+Depends: firmware (>= 8.0), mobilesubstrate
+Architecture: iphoneos-arm
+Filename: debs//io.github.id70my.linkstoreios8_1.2_iphoneos-arm.deb
+Size: 1304356
+MD5sum: df8ec4fccef776d1775954e8856b896f
+Description: تحميل برامج مكركة من آب ستور ‫(‬معربة‫)‬
+author: iD70my <o@outlook.kr>
+tag: cydia::commercial, ios8support::1
+depiction: http://id70my.github.io/Depic/linkstoreios8/index.html
+name: LinkStore for iOS 8
 
 Package: io.github.id70my.savegram
 Version: 1.5.2-1
@@ -30,9 +45,9 @@ Size: 57996
 Installed-Size: 168
 MD5sum: dee67d512a107b5cf6f2f9bedc2b1f02
 Description: لحفظ الصور والفيديو من الإنستقرام.
-icon: file:///Library/Application Support/SaveGram/icon@2x.png
 author: iD70my <o@outlook.kr>
+icon: file:///Library/Application Support/SaveGram/icon@2x.png
+tag: cydia::commercial, ios8support::1
 depiction: http://id70my.github.io/Depic/savegram/index.html
 name: SaveGram
-tag: cydia::commercial, ios8support::1
 
