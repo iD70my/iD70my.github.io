@@ -1,7 +1,230 @@
-<form action="requestAccess.php" method="post">
- <p>Product: <input type="text" name="productid" /></p>
- <p>Your UDID: <input type="text" name="udid" /></p>
- <p>EMail: <input type="text" name="email" /></p>
- <p>Message (if you haven't typed in who you are, please type some intro about you, your blog so that, it easy for the user to approve your device): <input type="text" name="message" /></p>
- <p><input type="submit" /></p>
-</form>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sperobox - Mobile beta version</title>
+	<link rel="stylesheet" href="{{ MEDIA_URL }}foundation/css/foundation.css" />
+	<script src="{{ MEDIA_URL }}foundation/js/modernizr.js"></script>
+
+</head>
+
+<body>
+	<!-- Navigation -->
+
+	<nav class="top-bar" data-topbar>
+		<ul class="title-area">
+			<!-- Title Area -->
+			<li class="name">
+				<h1>
+					<a href="http://www.sperobox.com">
+						Sperobox
+					</a>
+				</h1>
+			</li>
+			<li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+		</ul>
+
+		<section class="top-bar-section">
+			<!-- Right Nav Section -->
+			
+		</section>
+	</nav>
+
+	<!-- End Top Bar -->
+
+	<div class="row">
+		<div class="large-12 columns">
+
+			<!-- Content Slider -->
+
+			<!--<div class="row">
+				<div class="large-12 hide-for-small">
+					<div id="featured" data-orbit>
+						<img src="http://www.sperobox.com/media/main/img/logospero.jpg" alt="slide image">
+						<img src="http://placehold.it/1200x500&text=Slide Image 2" alt="slide image">
+						<img src="http://placehold.it/1200x500&text=Slide Image 3" alt="slide image">
+					</div>
+				</div>
+			</div>-->
+
+			<!-- End Content Slider -->
+
+			
+
+			<!-- Mobile Header -->
+
+			
+
+			<!-- End Mobile Header -->
+			<br>
+
+
+					<div class="row">
+
+						<!-- Shows -->
+						<div class="large-4 small-6 columns">
+
+							
+							<h4>Mobile Versions</h4><hr>
+							
+							<div class="row">
+								<div class="large-12 columns">
+									<h5><a href="#" onclick="show_ios();"><strong>iOS</strong></a></h5>
+								</div>
+								<div class="large-12 columns" id="ios-details" style="display:none;">
+									<h6>Please give us your device UDID. <a href="http://whatsmyudid.com/" target="_blank">( What's my UDID? )</a></h6>
+									<input type="text" placeholder="email@example.com" id="user-email"/>
+									<input type="text" placeholder="Your device UDID" id="device-udid"/>
+									<a href='#' class='button' style='width:100%;' id="submit-btn">Submit</a>
+								</div>
+								<div class="large-12 columns" id="ios-udid-msg" style="display:none;">
+									
+								</div>
+								
+							</div><hr>
+
+							
+								<div class="row">
+									<div class="large-9 columns">
+										<h5 class="subheader"><a href="#" onclick="show_android();"><strong>Android</strong></a></h5>
+									</div>
+									<div class="large-12 columns" id="android-details" style="display:none;">
+										<h6><a href="#" onclick="show_howto();">( How to install .apk? )</a></h6>
+										<div id="android-howto" style="display:none;">
+												<ul>
+													<li>Copy the apk to SD card.</li>
+													<li>Download app called "AppInstaller" from Google Play Store.</li>
+													<li>On opening the app you can see the .apk file in the list.</li>
+													<li>Click on the app, and it gets installed... </li>
+												</ul>
+											
+										</div>
+										<a href='{{ MEDIA_URL }}app/sperobox.apk' class='button' style='width:100%;' id="submit-btn">Download</a>
+									</div>
+								</div><hr>
+
+								
+							
+						<div class="row">
+							<div class="large-12 columns"><img src="{{ MEDIA_URL }}foundation/img/android.png"><img src="{{ MEDIA_URL }}foundation/img/apple.png"></div>
+						</div>
+
+						</div>
+						<!-- End Shows -->
+
+
+						<!-- Image -->
+						<div class="large-4 small-6 columns">
+							<img src="{{ MEDIA_URL }}foundation/img/iphone_main.png">
+						</div>
+
+						<div class="large-4 small-6 columns">
+							<img src="{{ MEDIA_URL }}foundation/img/iphone_new.png">
+						</div>
+
+						<!-- End Image -->
+
+
+						<!-- Feed -->
+
+						
+						<!-- End Feed -->
+
+					</div>
+				</div>
+			</div>
+
+			<!-- End Content -->
+
+
+			<!-- Footer -->
+
+			<footer class="row">
+				<div class="large-12 columns"><hr>
+					<div class="row">
+
+						<div class="large-6 columns">
+							<p>© Copyright INESCC - <a href="http://kreation.dec.uc.pt">http://kreation.dec.uc.pt</a></p>
+						</div>
+
+						<div class="large-6 small-12 columns">
+							<ul class="inline-list right">
+								<li><a href="/">Sperobox</a></li>
+								
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</footer>
+
+			<!-- End Footer -->
+
+		</div>
+	</div>
+</body>
+<script src="{{ MEDIA_URL }}foundation/js/jquery.js"></script>
+<script src="{{ MEDIA_URL }}foundation/js/foundation.min.js"></script>
+<script src="{{ MEDIA_URL }}foundation/js/foundation.tooltip.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.3.1/jquery.cookie.min.js"></script>
+<script >
+$(document).foundation();
+</script>
+
+<script>
+$("#submit-btn").click(function() {
+	var udid = $("#device-udid").val();
+	var user_email = $("#user-email").val();
+	var udid_success = "<div data-alert class='alert-box success'>Your UDID was successfully uploaded. Thanks!</div><a href='{{ MEDIA_URL }}app/sperobox.ipa' class='button' style='width:100%;'>Download</a>";
+	var udid_fail = "<div data-alert class='alert-box warning'>Somethin went wrong. Please try again later.</div>";
+	var udid_ok = "<div data-alert class='alert-box info'>Your UDID is already in the database and your device will soon be prepared to use the application. Thanks! </div>";
+	var udid_validation = "<div data-alert class='alert-box warning'>Your UDID is not valid! <a href='#' onclick='show_ios();' style='color:white;text-decoration:underline;'>Try again please.</a></div>";
+	
+	$.post("/request_udid/", {csrfmiddlewaretoken:$.cookie('csrftoken'), 'udid':udid, 'email': user_email}, function(data) {
+		var result = data.success; // test
+		if (result == "success") {
+			$("#device-udid").val('');
+			$("#ios-details").hide();
+			$("#ios-udid-msg").html(udid_success).fadeIn();
+		} else if (result == "fail") {
+			$("#device-udid").val('');
+			$("#ios-details").hide();
+			$("#ios-udid-msg").html(udid_fail).fadeIn();
+		} else if (result == "ok") {
+			$("#device-udid").val('');
+			$("#ios-details").hide();
+			$("#ios-udid-msg").html(udid_ok).fadeIn();
+		} else if (result == "notvalid") {
+			$("#device-udid").val('');
+			$("#ios-details").hide();
+			$("#ios-udid-msg").html(udid_validation).fadeIn();
+		}
+	}, "json");
+	
+});
+function show_android() {
+	$("#android-details").fadeToggle();
+}
+function show_howto() {
+	$("#android-howto").fadeToggle();
+}
+function show_ios() {
+	$("#device-udid").val('');
+	$("#ios-udid-msg").hide();
+	$("#ios-details").fadeToggle();
+}
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47092258-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</html>
