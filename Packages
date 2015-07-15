@@ -12,11 +12,27 @@ Size: 25448
 Installed-Size: 140
 MD5sum: b59862e7f38b459084b932b2eb57b42d
 Description: الاداة المشهورة لتثبيت التطبيقات المكركة.
-depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
 author: iD70my <o@outlook.kr>
-homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
-tag: cydia::commercial, ios8support::1
 name: AppSync Unified iOS 8
+tag: cydia::commercial, ios8support::1
+depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
+homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
+
+Package: io.github.id70my.cracktool
+Version: 2.2
+Section: Utilities
+Maintainer: iD70my <o@outlook.kr>
+Architecture: iphoneos-arm
+Filename: debs//io.github.id70my.cracktool_2.2_iphoneos-arm.deb
+Size: 183384
+MD5sum: 7fb48cb7105c13f5a5a78d1bf5d8c3b4
+Description: تكريك الادوات المدفوعة وتفعيلها
+author: iD70my <o@outlook.kr>
+name: CrackTool
+tag: cydia::commercial, compatible::ios8
+depiction: http://id70my.github.io/Depic/cracktool/index.html
+sponsor: iD70my <o@outlook.kr>
+homepage: http://id70my.github.io/Depic/cracktool/index.html
 
 Package: io.github.id70my.infinitetweet2
 Version: 2.4-1
@@ -30,13 +46,13 @@ Size: 1193740
 Installed-Size: 1313
 MD5sum: 234eeeede20d26946e292192f2a3d869
 Description: للتغريد بأكثر من ١٤٠ حرف
-depiction: http://id70my.github.io/Depic/infinitetweet2/index.html
 author: iD70my <o@outlook.kr>
-tag: cydia::commercial, compatible::ios8
-icon: file:///Library/PreferenceBundles/infinitetweet.bundle/infinitetweet@2x.png
-dev: iD70my
-sponsor: iD70my <o@outlook.kr>
 name: Infinite Tweet 2
+tag: cydia::commercial, compatible::ios8
+depiction: http://id70my.github.io/Depic/infinitetweet2/index.html
+icon: file:///Library/PreferenceBundles/infinitetweet.bundle/infinitetweet@2x.png
+sponsor: iD70my <o@outlook.kr>
+dev: iD70my
 
 Package: io.github.id70my.linkstoreios8
 Version: 1.2
@@ -48,10 +64,10 @@ Filename: debs//io.github.id70my.linkstoreios8_1.2_iphoneos-arm.deb
 Size: 1304356
 MD5sum: df8ec4fccef776d1775954e8856b896f
 Description: تحميل برامج مكركة من آب ستور ‫(‬معربة‫)‬
-depiction: http://id70my.github.io/Depic/linkstoreios8/index.html
 author: iD70my <o@outlook.kr>
-tag: cydia::commercial, ios8support::1
 name: LinkStore for iOS 8
+tag: cydia::commercial, ios8support::1
+depiction: http://id70my.github.io/Depic/linkstoreios8/index.html
 
 Package: io.github.id70my.savegram
 Version: 1.5.2-1
@@ -65,9 +81,9 @@ Size: 57996
 Installed-Size: 168
 MD5sum: dee67d512a107b5cf6f2f9bedc2b1f02
 Description: لحفظ الصور والفيديو من الإنستقرام.
-depiction: http://id70my.github.io/Depic/savegram/index.html
 author: iD70my <o@outlook.kr>
-tag: cydia::commercial, ios8support::1
-icon: file:///Library/Application Support/SaveGram/icon@2x.png
 name: SaveGram
+tag: cydia::commercial, ios8support::1
+depiction: http://id70my.github.io/Depic/savegram/index.html
+icon: file:///Library/Application Support/SaveGram/icon@2x.png
 
