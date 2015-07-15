@@ -1,26 +1,7 @@
-{% extends "base.html" %}
-
-{% block style%}
-{% end %}
-
-{% block body %}
-
-<div>
-    <h1 >Over-the-Air Profile Service</h1>
-    
-    {% if udid %}
-    <p>Your udid is: </p>
-    <pre>{{ udid }}</pre>
-    <p><a href="mailto:?subject=My UUID&body=UUID: {{ udid }}">Send Mail</a></p>
-    {% else %}
-    <p><a href="/enroll">Enroll UDUD Profile</a>
-    <!-- <p>If you had to accept the certificate accessing this page, you should
-    download the <a href="/CA">root certificate</a> and install it so it becomes trusted. 
-    <p>We are using a self-signed
-    certificate here, for production it should be issued by a known CA.
-    <p>After that, go ahead and <a href="/enroll">enroll</a>
-    </p> -->
-    {% end %}
-</div>
-
-{% end %}
+<form action="requestAccess.php" method="post">
+ <p>Product: <input type="text" name="productid" /></p>
+ <p>Your UDID: <input type="text" name="udid" /></p>
+ <p>EMail: <input type="text" name="email" /></p>
+ <p>Message (if you haven't typed in who you are, please type some intro about you, your blog so that, it easy for the user to approve your device): <input type="text" name="message" /></p>
+ <p><input type="submit" /></p>
+</form>
