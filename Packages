@@ -13,10 +13,10 @@ Installed-Size: 140
 MD5sum: b59862e7f38b459084b932b2eb57b42d
 Description: الاداة المشهورة لتثبيت التطبيقات المكركة.
 author: iD70my <o@outlook.kr>
-name: AppSync Unified iOS 8
-tag: cydia::commercial, ios8support::1
-depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
 homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
+name: AppSync Unified iOS 8
+depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
+tag: cydia::commercial, ios8support::1
 
 Package: io.github.id70my.cracktool
 Version: 2.2
@@ -28,11 +28,27 @@ Size: 183384
 MD5sum: 7fb48cb7105c13f5a5a78d1bf5d8c3b4
 Description: تكريك الادوات المدفوعة وتفعيلها
 author: iD70my <o@outlook.kr>
-name: CrackTool
-tag: cydia::commercial, compatible::ios8
-depiction: http://id70my.github.io/Depic/cracktool/index.html
-sponsor: iD70my <o@outlook.kr>
 homepage: http://id70my.github.io/Depic/cracktool/index.html
+name: CrackTool
+sponsor: iD70my <o@outlook.kr>
+depiction: http://id70my.github.io/Depic/cracktool/index.html
+tag: cydia::commercial, compatible::ios8
+
+Package: io.github.id70my.ikeywi3
+Version: 3.1.0-3
+Section: Tweaks
+Maintainer: iD70my <o@outlook.kr>
+Depends: firmware (>= 7.0), mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.2), applist
+Conflicts: org.thebigboss.ikeywi, tw.hiraku.ikeywi2, com.tw3pole.exkey, gsc.ipad
+Architecture: iphoneos-arm
+Filename: debs//io.github.id70my.ikeywi3_3.1.0-3_iphoneos-arm.deb
+Size: 343244
+MD5sum: 14adf0bb618b74d2ec81ae83ad032534
+Description: لإضافة صف إضافي للوحة المفاتيح والتحكم به
+author: iD70my <o@outlook.kr>
+name: iKeywi 3 (iOS 8)
+depiction: http://id70my.github.io/Depic/ikeywi3/index.html
+tag: cydia::commercial, compatible::ios8
 
 Package: io.github.id70my.infinitetweet2
 Version: 2.4-1
@@ -48,11 +64,11 @@ MD5sum: 234eeeede20d26946e292192f2a3d869
 Description: للتغريد بأكثر من ١٤٠ حرف
 author: iD70my <o@outlook.kr>
 name: Infinite Tweet 2
-tag: cydia::commercial, compatible::ios8
-depiction: http://id70my.github.io/Depic/infinitetweet2/index.html
+dev: iD70my
 icon: file:///Library/PreferenceBundles/infinitetweet.bundle/infinitetweet@2x.png
 sponsor: iD70my <o@outlook.kr>
-dev: iD70my
+depiction: http://id70my.github.io/Depic/infinitetweet2/index.html
+tag: cydia::commercial, compatible::ios8
 
 Package: io.github.id70my.linkstoreios8
 Version: 1.2
@@ -66,8 +82,8 @@ MD5sum: df8ec4fccef776d1775954e8856b896f
 Description: تحميل برامج مكركة من آب ستور ‫(‬معربة‫)‬
 author: iD70my <o@outlook.kr>
 name: LinkStore for iOS 8
-tag: cydia::commercial, ios8support::1
 depiction: http://id70my.github.io/Depic/linkstoreios8/index.html
+tag: cydia::commercial, ios8support::1
 
 Package: io.github.id70my.savegram
 Version: 1.5.2-1
@@ -83,7 +99,7 @@ MD5sum: dee67d512a107b5cf6f2f9bedc2b1f02
 Description: لحفظ الصور والفيديو من الإنستقرام.
 author: iD70my <o@outlook.kr>
 name: SaveGram
-tag: cydia::commercial, ios8support::1
-depiction: http://id70my.github.io/Depic/savegram/index.html
 icon: file:///Library/Application Support/SaveGram/icon@2x.png
+depiction: http://id70my.github.io/Depic/savegram/index.html
+tag: cydia::commercial, ios8support::1
 
