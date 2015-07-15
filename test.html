@@ -1,230 +1,389 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Sperobox - Mobile beta version</title>
-	<link rel="stylesheet" href="{{ MEDIA_URL }}foundation/css/foundation.css" />
-	<script src="{{ MEDIA_URL }}foundation/js/modernizr.js"></script>
-
-</head>
-
-<body>
-	<!-- Navigation -->
-
-	<nav class="top-bar" data-topbar>
-		<ul class="title-area">
-			<!-- Title Area -->
-			<li class="name">
-				<h1>
-					<a href="http://www.sperobox.com">
-						Sperobox
-					</a>
-				</h1>
-			</li>
-			<li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-		</ul>
-
-		<section class="top-bar-section">
-			<!-- Right Nav Section -->
-			
-		</section>
-	</nav>
-
-	<!-- End Top Bar -->
-
-	<div class="row">
-		<div class="large-12 columns">
-
-			<!-- Content Slider -->
-
-			<!--<div class="row">
-				<div class="large-12 hide-for-small">
-					<div id="featured" data-orbit>
-						<img src="http://www.sperobox.com/media/main/img/logospero.jpg" alt="slide image">
-						<img src="http://placehold.it/1200x500&text=Slide Image 2" alt="slide image">
-						<img src="http://placehold.it/1200x500&text=Slide Image 3" alt="slide image">
-					</div>
-				</div>
-			</div>-->
-
-			<!-- End Content Slider -->
-
-			
-
-			<!-- Mobile Header -->
-
-			
-
-			<!-- End Mobile Header -->
-			<br>
-
-
-					<div class="row">
-
-						<!-- Shows -->
-						<div class="large-4 small-6 columns">
-
-							
-							<h4>Mobile Versions</h4><hr>
-							
-							<div class="row">
-								<div class="large-12 columns">
-									<h5><a href="#" onclick="show_ios();"><strong>iOS</strong></a></h5>
-								</div>
-								<div class="large-12 columns" id="ios-details" style="display:none;">
-									<h6>Please give us your device UDID. <a href="http://whatsmyudid.com/" target="_blank">( What's my UDID? )</a></h6>
-									<input type="text" placeholder="email@example.com" id="user-email"/>
-									<input type="text" placeholder="Your device UDID" id="device-udid"/>
-									<a href='#' class='button' style='width:100%;' id="submit-btn">Submit</a>
-								</div>
-								<div class="large-12 columns" id="ios-udid-msg" style="display:none;">
-									
-								</div>
-								
-							</div><hr>
-
-							
-								<div class="row">
-									<div class="large-9 columns">
-										<h5 class="subheader"><a href="#" onclick="show_android();"><strong>Android</strong></a></h5>
-									</div>
-									<div class="large-12 columns" id="android-details" style="display:none;">
-										<h6><a href="#" onclick="show_howto();">( How to install .apk? )</a></h6>
-										<div id="android-howto" style="display:none;">
-												<ul>
-													<li>Copy the apk to SD card.</li>
-													<li>Download app called "AppInstaller" from Google Play Store.</li>
-													<li>On opening the app you can see the .apk file in the list.</li>
-													<li>Click on the app, and it gets installed... </li>
-												</ul>
-											
-										</div>
-										<a href='{{ MEDIA_URL }}app/sperobox.apk' class='button' style='width:100%;' id="submit-btn">Download</a>
-									</div>
-								</div><hr>
-
-								
-							
-						<div class="row">
-							<div class="large-12 columns"><img src="{{ MEDIA_URL }}foundation/img/android.png"><img src="{{ MEDIA_URL }}foundation/img/apple.png"></div>
-						</div>
-
-						</div>
-						<!-- End Shows -->
-
-
-						<!-- Image -->
-						<div class="large-4 small-6 columns">
-							<img src="{{ MEDIA_URL }}foundation/img/iphone_main.png">
-						</div>
-
-						<div class="large-4 small-6 columns">
-							<img src="{{ MEDIA_URL }}foundation/img/iphone_new.png">
-						</div>
-
-						<!-- End Image -->
-
-
-						<!-- Feed -->
-
-						
-						<!-- End Feed -->
-
-					</div>
-				</div>
-			</div>
-
-			<!-- End Content -->
-
-
-			<!-- Footer -->
-
-			<footer class="row">
-				<div class="large-12 columns"><hr>
-					<div class="row">
-
-						<div class="large-6 columns">
-							<p>© Copyright INESCC - <a href="http://kreation.dec.uc.pt">http://kreation.dec.uc.pt</a></p>
-						</div>
-
-						<div class="large-6 small-12 columns">
-							<ul class="inline-list right">
-								<li><a href="/">Sperobox</a></li>
-								
-							</ul>
-						</div>
-
-					</div>
-				</div>
-			</footer>
-
-			<!-- End Footer -->
-
-		</div>
-	</div>
-</body>
-<script src="{{ MEDIA_URL }}foundation/js/jquery.js"></script>
-<script src="{{ MEDIA_URL }}foundation/js/foundation.min.js"></script>
-<script src="{{ MEDIA_URL }}foundation/js/foundation.tooltip.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.3.1/jquery.cookie.min.js"></script>
-<script >
-$(document).foundation();
-</script>
-
-<script>
-$("#submit-btn").click(function() {
-	var udid = $("#device-udid").val();
-	var user_email = $("#user-email").val();
-	var udid_success = "<div data-alert class='alert-box success'>Your UDID was successfully uploaded. Thanks!</div><a href='{{ MEDIA_URL }}app/sperobox.ipa' class='button' style='width:100%;'>Download</a>";
-	var udid_fail = "<div data-alert class='alert-box warning'>Somethin went wrong. Please try again later.</div>";
-	var udid_ok = "<div data-alert class='alert-box info'>Your UDID is already in the database and your device will soon be prepared to use the application. Thanks! </div>";
-	var udid_validation = "<div data-alert class='alert-box warning'>Your UDID is not valid! <a href='#' onclick='show_ios();' style='color:white;text-decoration:underline;'>Try again please.</a></div>";
-	
-	$.post("/request_udid/", {csrfmiddlewaretoken:$.cookie('csrftoken'), 'udid':udid, 'email': user_email}, function(data) {
-		var result = data.success; // test
-		if (result == "success") {
-			$("#device-udid").val('');
-			$("#ios-details").hide();
-			$("#ios-udid-msg").html(udid_success).fadeIn();
-		} else if (result == "fail") {
-			$("#device-udid").val('');
-			$("#ios-details").hide();
-			$("#ios-udid-msg").html(udid_fail).fadeIn();
-		} else if (result == "ok") {
-			$("#device-udid").val('');
-			$("#ios-details").hide();
-			$("#ios-udid-msg").html(udid_ok).fadeIn();
-		} else if (result == "notvalid") {
-			$("#device-udid").val('');
-			$("#ios-details").hide();
-			$("#ios-udid-msg").html(udid_validation).fadeIn();
-		}
-	}, "json");
-	
-});
-function show_android() {
-	$("#android-details").fadeToggle();
-}
-function show_howto() {
-	$("#android-howto").fadeToggle();
-}
-function show_ios() {
-	$("#device-udid").val('');
-	$("#ios-udid-msg").hide();
-	$("#ios-details").fadeToggle();
-}
-</script>
-
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script src="http://www.google.com/jsapi?key="AIzaSyApWRi6wT0l_PO5aMKeWm2f3aO_lzyfBSA"></script>
+<script src="http://earth-api-samples.googlecode.com/svn/trunk/lib/kmldomwalk.js" type="text/javascript"></script>
 <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-47092258-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  google.load("earth", "1");
+  google.setOnLoadCallback(init);
+  var INIT_LOC = {
+  lat: 0,
+  lng: 0,
+  heading: 90
+  }; // googleplex
+  var MODEL_URL ="http://sonic-labo.com/track/models/glider/doc.kml";
+  var mk = new Object;
+  var map;
+  var airPort = new Object;
+  var plane = new Object;
+  var lookAt= new Object;
+  var labelMarker = new Object;
+  var lineStringPlacemark = new Object;
+  var lineString = new Object;
+  var lineStringNodeNum;
+  var difLat = 0;
+  var difLng = 0;
+  var difAlt = 0;
+  var scaleVal = 5.0;
+  //---------------------------------------------------------------------------------------------------------
+  function init(){
+  google.earth.createInstance('map_canvas', initCB, failureCB);
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function initCB(instance) {
+  ge = instance;
+  ge.getWindow().setVisibility(true);
+  ge.getNavigationControl().setVisibility(ge.VISIBILITY_SHOW);
+  ge.getOptions().setFlyToSpeed(ge.SPEED_TELEPORT);
+  //		ge.getOptions().setFlyToSpeed(0.1);
+  lookAt = ge.getView().copyAsCamera(ge.ALTITUDE_ABSOLUTE);
+  google.earth.addEventListener(ge.getView(), 'viewchangeend', function(){
+  lookAt = ge.getView().copyAsCamera(ge.ALTITUDE_ABSOLUTE);
+  });
+  google.earth.addEventListener(ge.getView(), 'viewchangebegin', function(){
+  noticeViewChange();
+  });
+  /*
+  google.earth.addEventListener(ge.getGlobe(), 'mousedown', function(){
+  mouseDown = 1;
+  });
+  google.earth.addEventListener(ge.getGlobe(), 'mouseup', function(){
+  mouseDown = 0;
+  });
+  */
+  //		var navcontrol = ge.getNavigationControl();
+  //		navcontrol.setStreetViewEnabled(true);
+  window.external.GEInitDone();
+  var lookAt = ge.createLookAt('');
+  lookAt.setLatitude(35.535134);
+  lookAt.setLongitude(139.792980);
+  lookAt.setAltitude(1000);
+  lookAt.setAltitudeMode(ge.ALTITUDE_ABSOLUTE);
+  ge.getView().setAbstractView(lookAt);
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function moveCamera(latMove,lngMove,altMove,XMove,YMove){
+  if ( ge == undefined ) return;
+  //		var lookAt = ge.getView().copyAsLookAt(ge.ALTITUDE_RELATIVE_TO_GROUND);
+  var lookAt = ge.getView().copyAsCamera(ge.ALTITUDE_ABSOLUTE);
+  lookAt.setLatitude(lookAt.getLatitude() + parseFloat(latMove));
+  lookAt.setLongitude(lookAt.getLongitude() + parseFloat(lngMove));
+  lookAt.setAltitude(lookAt.getAltitude() + parseFloat(altMove));
+  lookAt.setHeading(lookAt.getHeading() + parseFloat(XMove));
+  lookAt.setTilt(lookAt.getTilt() + parseFloat(YMove));
+  ge.getView().setAbstractView(lookAt);
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function noticeViewChange(){
+  var cam = ge.getView().copyAsCamera(ge.ALTITUDE_ABSOLUTE);
+  window.external.viewChanged(cam.getHeading(),cam.getAltitude());
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function dispPlane(){
+  movePlane(0, 35.797893,139.298014,170,360,0,0,0,"AAAA");
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function failureCB(errorCode) {
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function test(a,b){
+  window.alert(a);
+  window.alert(b);
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function makePlane(udid,name) {
+  if (plane[udid] == undefined ) {
+  //機体作成
+  plane[udid] = new Plane(udid,name);
+  plane[udid].nodeNum = ge.getFeatures().getChildNodes().getLength()-1;				//消去時の為にノード番号を保存
+  plane[udid].name = name;
+  }
+  if (lineStringPlacemark[udid] == undefined ) {
+  lineStringPlacemark[udid] = ge.createPlacemark('');
+  lineStringPlacemark[udid].setStyleSelector(ge.createStyle(''));
+  lineString[udid] = ge.createLineString('');
+  lineString[udid].setExtrude(false);
+  lineString[udid].setAltitudeMode(ge.ALTITUDE_ABSOLUTE);
+  lineStringPlacemark[udid].setGeometry(lineString[udid]);
+  var lineStyle = lineStringPlacemark[udid].getStyleSelector().getLineStyle();
+  lineStyle.setWidth(3);
+  lineStyle.getColor().set('8000ff00');
+  ge.getFeatures().appendChild(lineStringPlacemark[udid]);
+  }
+  if (labelMarker[udid] == undefined ) {
+  //ラベル表示の為、カスタムアイコン表示のPlaceMarkを作る
+  var placemark = ge.createPlacemark('');
+  placemark.setName(name);
+  var icon = ge.createIcon('');
+  //			icon.setHref('http://maps.google.com/mapfiles/kml/paddle/red-circle.png');
+  icon.setHref('http://sonic-labo.com/adsb_track/icon/clear.png');
+  var style = ge.createStyle(''); //create a new style
+  style.getIconStyle().setIcon(icon); //apply the icon to the style
+  //			style.getIconStyle().setScale(10.0);
+  //			style.getLabelStyle().setScale(0.2);
+  placemark.setStyleSelector(style); //apply the style to the placemark
+  var point = ge.createPoint('');
+  placemark.setGeometry(point);
+  labelMarker[udid] = placemark;
+  ge.getFeatures().appendChild(labelMarker[udid]);
+  google.earth.addEventListener(placemark, 'click', function(event) {
+  var tgt = event.getTarget();
+  for ( var i in labelMarker) {
+  if (labelMarker[i]==tgt){
+  window.external.modelClicked(i);
+  break;
+  }
+  }
+  });
+  }
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function makeAirportPlaceMark(icao,name,lat,lng){
+  var placemark = ge.createPlacemark('');
+  placemark.setName(icao + ":"+name);
+  var icon = ge.createIcon('');
+  icon.setHref('http://sonic-labo.com/adsb_track/icon/airport_terminal.png');
+  var style = ge.createStyle(''); //create a new style
+  style.getIconStyle().setIcon(icon); //apply the icon to the style
+  placemark.setStyleSelector(style); //apply the style to the placemark
+  placemark.getStyleSelector().getLabelStyle().setScale(0.7);
+  var point = ge.createPoint('');
+  point.setLatitude(lat);
+  point.setLongitude(lng);
+  placemark.setGeometry(point);
+  ge.getFeatures().appendChild(placemark);
+  airPort[icao] = placemark;
+  google.earth.addEventListener(placemark, 'click', function(event) {
+  var tgt = event.getTarget();
+  for ( var i in airPort) {
+  if (airPort[i]==tgt){
+  window.external.airPortClicked(i);
+  break;
+  }
+  }
+  });
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function removeAirport() {
+  for ( ap in airPort){
+  ge.getFeatures().removeChild(airPort[ap]);
+  }
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function dispAirport() {
+  for ( ap in airPort){
+  ge.getFeatures().appendChild(airPort[ap]);
+  }
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function movePlane( udid,name, lat, lng, alt, heading, roll, pitch,lineFlag ) {
+  if (plane[udid] == undefined ) {
+  //機体作成
+  makePlane(udid,name);
+  }
+  //機体移動
+  if (( roll == "---" ) || ( pitch == "---" ) || ( roll == "" ) || ( pitch == "" )) {
+  plane[udid].teleportTo( udid, parseFloat(lat), parseFloat(lng), parseFloat(alt),parseInt(heading),parseInt(0), parseInt(0));
+  }
+  else {
+  plane[udid].teleportTo( udid, parseFloat(lat), parseFloat(lng), parseFloat(alt),parseInt(heading),parseInt(roll),parseInt(pitch));
+  }
+  if ( lineString[udid] != undefined ) {
+  if ( lineFlag =="true" ){
+  lineString[udid].getCoordinates().pushLatLngAlt(parseFloat(lat), parseFloat(lng), parseFloat(alt));
+  }
+  }
+  else {
+  window.alert("UNDEFINED");
+  }
+  if ( labelMarker[udid] != undefined ) {
+  var point = ge.createPoint('');
+  labelMarker[udid].setName(name);
+  point.setLatitude(lat);
+  point.setLongitude(lng);
+  point.setAltitude(parseInt(alt)+200);
+  point.setAltitudeMode(ge.ALTITUDE_ABSOLUTE);
+  labelMarker[udid].setGeometry(point);
+  }
+  //更新時間設定
+  now = new Date();
+  plane[udid].time = now.getTime();
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function lookAtPlane( udid ) {
+  plane[udid].cameraCut();
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function resetLineString(udid){
+  if ( lineStringPlacemark[udid] != undefined ) {
+  ge.getFeatures().removeChild(lineStringPlacemark[udid]);
+  }
+  delete lineStringPlacemark[udid];
+  delete lineString[udid];
+  //window.alert("lineStringReset:"+udid);
+  lineStringPlacemark[udid] = ge.createPlacemark('');
+  lineStringPlacemark[udid].setStyleSelector(ge.createStyle(''));
+  lineString[udid] = ge.createLineString('');
+  lineStringPlacemark[udid].setGeometry(lineString[udid]);
+  lineString[udid].setExtrude(false);
+  lineString[udid].setAltitudeMode(ge.ALTITUDE_ABSOLUTE);
+  var lineStyle = lineStringPlacemark[udid].getStyleSelector().getLineStyle();
+  lineStyle.setWidth(3);
+  lineStyle.getColor().set('8000ff00');
+  ge.getFeatures().appendChild(lineStringPlacemark[udid]);
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function Plane(udid,name) {
+  var me = this;
+  var model = ge.createModel('');
+  var placemark = ge.createPlacemark('');
+  me.placemark = placemark;
+  var loc = ge.createLocation('');
+  var la = ge.getView().copyAsLookAt(ge.ALTITUDE_RELATIVE_TO_GROUND);
+  loc.setLatitude(la.getLatitude());
+  loc.setLongitude(la.getLongitude());
+  model.setLocation(loc);
+  var link = ge.createLink('');
+  //		link.setHref('http://sonic-labo.com/adsb_track/models/B777/B777.dae');
+  link.setHref('http://sonic-labo.com/adsb_track/models/B777/simple_model.dae');
+  model.setLink(link);
+  me.model = model;
+  me.placemark.setGeometry(model);
+  this.model.getLocation().setLatLngAlt( 0,0,0);
+  var scale = this.model.getScale();
+  scale.set(scaleVal,scaleVal,scaleVal);
+  me.orientation = me.model.getOrientation();
+  me.location = me.model.getLocation();
+  me.model.setAltitudeMode(ge.ALTITUDE_ABSOLUTE);
+  me.orientation.setHeading(0);
+  ge.getFeatures().appendChild(placemark);
+  }
+  //---------------------------------------------------------------------------------------------------------
+  Plane.prototype.teleportTo = function(udid,lat, lng, alt, heading,roll,pitch) {
+  var me = this;
+  if (heading == null) {
+  heading = 0;
+  }
+  heading-=180;
+  this.model.getLocation().setLatLngAlt( lat, lng, alt );
+  this.orientation.setHeading(heading);
+  this.orientation.setRoll(roll);
+  this.orientation.setTilt(pitch);
+  };
+  //---------------------------------------------------------------------------------------------------------
+  function setOnGround(udid) {
+  if ( plane[udid] == undefined ){
+  return;
+  }
+  plane[udid].model.setAltitudeMode(ge.ALTITUDE_RELATIVE_TO_GROUND);
+  var scale = plane[udid].model.getScale();
+  scale.set(1,1,1);
+  lineString[udid].setAltitudeMode(ge.ALTITUDE_RELATIVE_TO_GROUND);
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function setOnAir(udid) {
+  if ( plane[udid] == undefined ){
+  return;
+  }
+  plane[udid].model.setAltitudeMode(ge.ALTITUDE_ABSOLUTE);
+  var  scale = plane[udid].model.getScale();
+  scale.set(scaleVal,scaleVal,scaleVal);
+  lineString[udid].setAltitudeMode(ge.ALTITUDE_ABSOLUTE);
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function removePlane(udid){
+  if ( plane[udid] != undefined ){
+  ge.getFeatures().removeChild(plane[udid].placemark);
+  delete plane[udid];
+  }
+  if ( lineStringPlacemark[udid] != undefined ) {
+  ge.getFeatures().removeChild(lineStringPlacemark[udid]);
+  delete lineStringPlacemark[udid];
+  delete lineString[udid];
+  }
+  if ( labelMarker[udid] != undefined ) {
+  ge.getFeatures().removeChild(labelMarker[udid]);
+  delete labelMarker[udid];
+  }
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function setModelScale(scale){
+  scaleVal = parseInt(scale);
+  //		window.alert(scaleVal);
+  for ( var i in plane ){
+  var scale = plane[i].model.getScale();
+  scale.set(scaleVal,scaleVal,scaleVal);
+  }
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function setLabelScale(scale){
+  var scaleVal = parseFloat(scale);
+  for ( var i in labelMarker ){
+  labelMarker[i].getStyleSelector().getLabelStyle().setScale(scaleVal);
+  }
+  }
+  //---------------------------------------------------------------------------------------------------------
+  Plane.prototype.cameraCut = function() {
+  me = this;
+  var lookAt = ge.getView().copyAsCamera(ge.ALTITUDE_ABSOLUTE);
+  var lo = me.model.getLocation();
+  var lat = lo.getLatitude();
+  var lng = lo.getLongitude();
+  var alt = lo.getAltitude() + 1500;
+  var head = lookAt.getHeading();
+  var tilt = lookAt.getTilt();
+  var roll = lookAt.getRoll();
+  lookAt.set( lat ,
+  lng ,
+  alt ,
+  ge.ALTITUDE_ABSOLUTE ,
+  head,
+  tilt,
+  roll );
+  ge.getView().setAbstractView(lookAt);
+  };
+  //---------------------------------------------------------------------------------------------------------
+  function findAirPort(icao){
+  var lookAt = ge.getView().copyAsCamera(ge.ALTITUDE_ABSOLUTE);
+  var lo = airPort[icao];
+  var lat = airPort[icao].getGeometry().getLatitude();
+  var lng = airPort[icao].getGeometry().getLongitude();
+  var alt = 3000;
+  var head = 0;
+  var tilt = 0;
+  var roll = 0;
+  lookAt.set( lat ,
+  lng ,
+  alt ,
+  ge.ALTITUDE_ABSOLUTE ,
+  head,
+  tilt,
+  roll );
+  ge.getView().setAbstractView(lookAt);
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function setAirPortLabelScale(scale) {
+  for ( i in airPort ){
+  airPort[i].getStyleSelector().getLabelStyle().setScale(scale);
+  }
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function set3DBuildings( flag ){
+  var cmd = false;
+  if ( flag.toUpperCase() == "TRUE" ) {
+  cmd = true;
+  }
+  ge.getLayerRoot().enableLayerById(ge.LAYER_BUILDINGS, cmd );
+  }
+  //---------------------------------------------------------------------------------------------------------
+  function setBackGroundColor(col){
+  document.getElementById('map_canvas').style.backgroundColor = col;
+  }
+  //---------------------------------------------------------------------------------------------------------
 </script>
-
-
+</head>
+<body>
+<div id="map_canvas" style="width:100%; height:100%; margin:0px; padding:-100px;"></div>
+</body>
 </html>
