@@ -1,44 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
-	type="text/javascript"></script>
-<title>Insert title here</title>
-<script type="text/javascript">
-	function loadDevices() {
-		$.ajax({
-			url : "http://localhost:8080/devices",
-			type : 'get',
-			success : function(data) {
-				for ( var i = 0; i < data.length; i++){
-					$("#ttt").html("<tr><td>" + data[i].udid + "</td><td><button onclick=\"lock('" + data[i].udid + "');\">锁屏</button></td></tr>");
-				}
-			},
-			error : function() {
-			}
-		});
-	}
-	
-	function lock(udid){
-		alert(udid);
-		$.ajax({
-			url : "http://localhost:8080/lock?udid=" + udid,
-			type : 'get',
-			success : function(data) {
-			},
-			error : function() {
-			}
-		});
-	}
-</script>
-</head>
-<body>
-	<font id="f"></font>
-	<button id="d" onclick="loadDevices();">查看设备</button>
+{% extends config.base_template %}
 
-	<table id="ttt">
-	</table>
-</body>
-</html>
+{% block title %}My Devices{% endblock %}
+
+{% block content %}
+<h1>Devices for {{user.email}}</h1>
+<div style="height:20px;"></div>
+
+{% if devices %}
+  <table class="subscriptions">
+    <tr>
+      <th>Model</th>
+      <th>UDID</th>
+      <th>Created Date</th>
+      <th>&nbsp;</th>
+    </tr>
+    {% for dev in devices %}
+      <tr>
+        <td>{{dev.model}}</td>
+        <td>{{dev.udid}}</td>
+        <td>{{dev.created|date:"m/d/Y"}}</td>
+        <td><a href="/devices/delete?udid={{dev.udid}}">deauthorize</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+None
+{% endif %}
+
+{% endblock %}
