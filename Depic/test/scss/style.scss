@@ -144,7 +144,30 @@ Main Components
 			background-size: 100% auto;
 		}
 	}
+	&.img-5 {
+		background-color: $color-5;
 
+		.cd-content::after {
+			background: url('../img/img-mobile-5.jpg') no-repeat;
+			background-size: 100% auto;
+		}
+	}
+	&.img-6 {
+		background-color: $color-6;
+
+		.cd-content::after {
+			background: url('../img/img-mobile-6.jpg') no-repeat;
+			background-size: 100% auto;
+		}
+	}
+		&.img-7 {
+		background-color: $color-7;
+
+		.cd-content::after {
+			background: url('../img/img-mobile-7.jpg') no-repeat;
+			background-size: 100% auto;
+		}
+	}
 	@include MQ(M) {
 		height: 100%;
 		padding: 0;
