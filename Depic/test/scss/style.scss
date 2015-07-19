@@ -145,7 +145,7 @@ Main Components
 		}
 	}
 	&.img-5 {
-		background-color: $color-1;
+		background-color: $color-5;
 
 		.cd-content::after {
 			background: url('../img/img-mobile-5.jpg') no-repeat;
@@ -153,7 +153,7 @@ Main Components
 		}
 	}
 	&.img-6 {
-		background-color: $color-6;
+		background-color: $color-3;
 
 		.cd-content::after {
 			background: url('../img/img-mobile-6.jpg') no-repeat;
@@ -161,7 +161,7 @@ Main Components
 		}
 	}
 		&.img-7 {
-		background-color: $color-7;
+		background-color: $color-1;
 
 		.cd-content::after {
 			background: url('../img/img-mobile-7.jpg') no-repeat;
@@ -207,6 +207,15 @@ Main Components
 
 		&.img-4 {
 			background-image: url('../img/img-4.jpg');
+		}
+                &.img-5 {
+			background-image: url('../img/img-5.jpg');
+		}
+                &.img-6 {
+			background-image: url('../img/img-6.jpg');
+		}
+                &.img-7 {
+			background-image: url('../img/img-7.jpg');
 		}
 	}
 
