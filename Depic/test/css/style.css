@@ -171,6 +171,15 @@ Main Components
   .cd-fixed-background.img-4 {
     background-image: url("../img/img-4.jpg");
   }
+  .cd-fixed-background.img-5 {
+    background-image: url("../img/img-5.jpg");
+  }
+  .cd-fixed-background.img-6 {
+    background-image: url("../img/img-6.jpg");
+  }
+  .cd-fixed-background.img-7 {
+    background-image: url("../img/img-7.jpg");
+  }
 }
 @media only screen and (min-width: 1048px) {
   .cd-fixed-background {
