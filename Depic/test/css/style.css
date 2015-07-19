@@ -131,6 +131,27 @@ Main Components
   background: url("../img/img-mobile-4.jpg") no-repeat;
   background-size: 100% auto;
 }
+.cd-fixed-background.img-5 {
+  background-color: #db9537;
+}
+.cd-fixed-background.img-5 .cd-content::after {
+  background: url("../img/img-mobile-5.jpg") no-repeat;
+  background-size: 100% auto;
+}
+.cd-fixed-background.img-6 {
+  background-color: #db9537;
+}
+.cd-fixed-background.img-6 .cd-content::after {
+  background: url("../img/img-mobile-6.jpg") no-repeat;
+  background-size: 100% auto;
+}
+.cd-fixed-background.img-7 {
+  background-color: #db9537;
+}
+.cd-fixed-background.img-7 .cd-content::after {
+  background: url("../img/img-mobile-7.jpg") no-repeat;
+  background-size: 100% auto;
+}
 @media only screen and (min-width: 768px) {
   .cd-fixed-background {
     height: 100%;
