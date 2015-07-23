@@ -14,8 +14,8 @@ MD5sum: b2c87cf2955742e34b341e3d52a98de0
 Description: الاداة المشهورة لتثبيت التطبيقات المكركة.
 depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
 homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
-tag: cydia::commercial, ios8support::1
 name: AppSync Unified iOS 8
+tag: cydia::commercial, ios8support::1
 author: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.cracktool
@@ -29,9 +29,9 @@ MD5sum: 7fb48cb7105c13f5a5a78d1bf5d8c3b4
 Description: تكريك الادوات المدفوعة وتفعيلها
 depiction: http://id70my.github.io/Depic/cracktool/index.html
 homepage: http://id70my.github.io/Depic/cracktool/index.html
+name: CrackTool
 tag: cydia::commercial, compatible::ios8
 sponsor: iD70my <o@outlook.kr>
-name: CrackTool
 author: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.filza
@@ -45,8 +45,8 @@ Size: 9255452
 MD5sum: 190d4bc6380144737493344bec8c2969
 Description: تطبيق لتصفح ملفات الاي فون
 depiction: http://id70my.github.io/Depic/filza/index.html
-tag: cydia::commercial, compatible::ios8
 name: Filza File Manager
+tag: cydia::commercial, compatible::ios8
 author: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.ikeywi3
@@ -61,8 +61,8 @@ Size: 343244
 MD5sum: 14adf0bb618b74d2ec81ae83ad032534
 Description: لإضافة صف إضافي للوحة المفاتيح والتحكم به
 depiction: http://id70my.github.io/Depic/ikeywi3/index.html
-tag: cydia::commercial, compatible::ios8
 name: iKeywi 3 (iOS 8)
+tag: cydia::commercial, compatible::ios8
 author: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.infinitetweet2
@@ -78,11 +78,11 @@ Installed-Size: 1313
 MD5sum: 234eeeede20d26946e292192f2a3d869
 Description: للتغريد بأكثر من ١٤٠ حرف
 depiction: http://id70my.github.io/Depic/infinitetweet2/index.html
+name: Infinite Tweet 2
 tag: cydia::commercial, compatible::ios8
 icon: file:///Library/PreferenceBundles/infinitetweet.bundle/infinitetweet@2x.png
 sponsor: iD70my <o@outlook.kr>
 dev: iD70my
-name: Infinite Tweet 2
 author: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.linkstoreios8
@@ -96,8 +96,27 @@ Size: 1304356
 MD5sum: df8ec4fccef776d1775954e8856b896f
 Description: تحميل برامج مكركة من آب ستور ‫(‬معربة‫)‬
 depiction: http://id70my.github.io/Depic/linkstoreios8/index.html
-tag: cydia::commercial, ios8support::1
 name: LinkStore for iOS 8
+tag: cydia::commercial, ios8support::1
+author: iD70my <o@outlook.kr>
+
+Package: io.github.id70my.phantom
+Version: 4.3.2-2
+Priority: optional
+Section: Tweaks
+Maintainer: iD70my <o@outlook.kr>
+Depends: mobilesubstrate, preferenceloader
+Conflicts: com.n00neimp0rtant.picarchiver, com.thomasfinch.snapchatsound, com.timecompiler.snapchatlog, com.perascotta.snapmoretext, com.bengerard.snapselect, com.ridan.allsnap, com.drp.snapmaster, com.skylerk99.snapprefs, com.abcapps.snapplus
+Architecture: iphoneos-arm
+Filename: debs//io.github.id70my.phantom_4.3.2-2_iphoneos-arm.deb
+Size: 11783286
+MD5sum: 6c6592c4b35a5cec76e5b34358ee42ed
+Description: لتحكم في السناب شات بدون حضر الحساب
+depiction: http://id70my.github.io/Depic/phantom/index.html
+name: Phantom for Snapchat
+tag: cydia::commercial, compatible::ios8
+icon: file:///Library/PreferenceLoader/Preferences/phantomIcon@2x.png
+sponsor: iD70my <o@outlook.kr>
 author: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.safaridownloaderplus
@@ -114,9 +133,9 @@ Installed-Size: 20022
 MD5sum: 787a241b17038bdb4fb18bb26bc3becb
 Description: لتنزيل الملفات والفيديوات من سفاري
 depiction: http://id70my.github.io/Depic/safaridownloader/index.html
+name: Safari Downloader+
 tag: cydia::commercial, compatible::ios8
 icon: file:///Library/PreferenceBundles/SafariDownloaderPrefs.bundle/icon@2x.png
-name: Safari Downloader+
 author: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.savegram
@@ -132,8 +151,8 @@ Installed-Size: 168
 MD5sum: dee67d512a107b5cf6f2f9bedc2b1f02
 Description: لحفظ الصور والفيديو من الإنستقرام.
 depiction: http://id70my.github.io/Depic/savegram/index.html
+name: SaveGram
 tag: cydia::commercial, ios8support::1
 icon: file:///Library/Application Support/SaveGram/icon@2x.png
-name: SaveGram
 author: iD70my <o@outlook.kr>
 
