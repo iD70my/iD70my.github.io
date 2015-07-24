@@ -12,11 +12,11 @@ Size: 29828
 Installed-Size: 140
 MD5sum: b2c87cf2955742e34b341e3d52a98de0
 Description: الاداة المشهورة لتثبيت التطبيقات المكركة.
-name: AppSync Unified iOS 8
-tag: cydia::commercial, ios8support::1
-depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
-homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
 author: iD70my <o@outlook.kr>
+name: AppSync Unified iOS 8
+homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
+depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
+tag: cydia::commercial, ios8support::1
 
 Package: io.github.id70my.cracktool
 Version: 2.2
@@ -27,12 +27,12 @@ Filename: debs//io.github.id70my.cracktool_2.2_iphoneos-arm.deb
 Size: 183384
 MD5sum: 7fb48cb7105c13f5a5a78d1bf5d8c3b4
 Description: تكريك الادوات المدفوعة وتفعيلها
+author: iD70my <o@outlook.kr>
 name: CrackTool
-tag: cydia::commercial, compatible::ios8
-depiction: http://id70my.github.io/Depic/cracktool/index.html
 homepage: http://id70my.github.io/Depic/cracktool/index.html
 sponsor: iD70my <o@outlook.kr>
-author: iD70my <o@outlook.kr>
+depiction: http://id70my.github.io/Depic/cracktool/index.html
+tag: cydia::commercial, compatible::ios8
 
 Package: io.github.id70my.filza
 Version: 2.0.1-55
@@ -44,10 +44,10 @@ Filename: debs//io.github.id70my.filza_2.0.1-55_iphoneos-arm.deb
 Size: 9255452
 MD5sum: 190d4bc6380144737493344bec8c2969
 Description: تطبيق لتصفح ملفات الاي فون
-name: Filza File Manager
-tag: cydia::commercial, compatible::ios8
-depiction: http://id70my.github.io/Depic/filza/index.html
 author: iD70my <o@outlook.kr>
+name: Filza File Manager
+depiction: http://id70my.github.io/Depic/filza/index.html
+tag: cydia::commercial, compatible::ios8
 
 Package: io.github.id70my.h
 Version: 0.9.17
@@ -60,12 +60,12 @@ Filename: debs//io.github.id70my.h_0.9.17_iphoneos-arm.deb
 Size: 332952
 MD5sum: 4ebb498f41b7612ce3a834c2c671ad79
 Description: اداة لحذف الجلبريك وعمل رستورت للجهاز
-icon: file:///Applications/Impactor.app/Icon-60.png
+author: iD70my <o@outlook.kr>
 name: Cydia Impactor
 breaks: com.saurik.patych (<< 1.0.1)
-tag: cydia::commercial, compatible::ios8
+icon: file:///Applications/Impactor.app/Icon-60.png
 depiction: http://id70my.github.io/Depic/impactor/index.html
-author: iD70my <o@outlook.kr>
+tag: cydia::commercial, compatible::ios8
 
 Package: io.github.id70my.ikeywi3
 Version: 3.1.0-3
@@ -78,10 +78,10 @@ Filename: debs//io.github.id70my.ikeywi3_3.1.0-3_iphoneos-arm.deb
 Size: 343244
 MD5sum: 14adf0bb618b74d2ec81ae83ad032534
 Description: لإضافة صف إضافي للوحة المفاتيح والتحكم به
-name: iKeywi 3 (iOS 8)
-tag: cydia::commercial, compatible::ios8
-depiction: http://id70my.github.io/Depic/ikeywi3/index.html
 author: iD70my <o@outlook.kr>
+name: iKeywi 3 (iOS 8)
+depiction: http://id70my.github.io/Depic/ikeywi3/index.html
+tag: cydia::commercial, compatible::ios8
 
 Package: io.github.id70my.infinitetweet2
 Version: 2.4-1
@@ -95,13 +95,13 @@ Size: 1193740
 Installed-Size: 1313
 MD5sum: 234eeeede20d26946e292192f2a3d869
 Description: للتغريد بأكثر من ١٤٠ حرف
-icon: file:///Library/PreferenceBundles/infinitetweet.bundle/infinitetweet@2x.png
+author: iD70my <o@outlook.kr>
 name: Infinite Tweet 2
+sponsor: iD70my <o@outlook.kr>
+icon: file:///Library/PreferenceBundles/infinitetweet.bundle/infinitetweet@2x.png
+depiction: http://id70my.github.io/Depic/infinitetweet2/index.html
 dev: iD70my
 tag: cydia::commercial, compatible::ios8
-depiction: http://id70my.github.io/Depic/infinitetweet2/index.html
-sponsor: iD70my <o@outlook.kr>
-author: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.linkstoreios8
 Version: 1.2
@@ -113,10 +113,10 @@ Filename: debs//io.github.id70my.linkstoreios8_1.2_iphoneos-arm.deb
 Size: 1304356
 MD5sum: df8ec4fccef776d1775954e8856b896f
 Description: تحميل برامج مكركة من آب ستور ‫(‬معربة‫)‬
-name: LinkStore for iOS 8
-tag: cydia::commercial, ios8support::1
-depiction: http://id70my.github.io/Depic/linkstoreios8/index.html
 author: iD70my <o@outlook.kr>
+name: LinkStore for iOS 8
+depiction: http://id70my.github.io/Depic/linkstoreios8/index.html
+tag: cydia::commercial, ios8support::1
 
 Package: io.github.id70my.phantom
 Version: 4.3.2-2
@@ -130,12 +130,12 @@ Filename: debs//io.github.id70my.phantom_4.3.2-2_iphoneos-arm.deb
 Size: 11783286
 MD5sum: 6c6592c4b35a5cec76e5b34358ee42ed
 Description: لتحكم في السناب شات بدون حضر الحساب
-icon: file:///Library/PreferenceLoader/Preferences/phantomIcon@2x.png
-name: Phantom for Snapchat
-tag: cydia::commercial, compatible::ios8
-depiction: http://id70my.github.io/Depic/phantom/index.html
-sponsor: iD70my <o@outlook.kr>
 author: iD70my <o@outlook.kr>
+name: Phantom for Snapchat
+sponsor: iD70my <o@outlook.kr>
+icon: file:///Library/PreferenceLoader/Preferences/phantomIcon@2x.png
+depiction: http://id70my.github.io/Depic/phantom/index.html
+tag: cydia::commercial, compatible::ios8
 
 Package: io.github.id70my.safaridownloaderplus
 Version: 3.9-4
@@ -150,27 +150,27 @@ Size: 15650526
 Installed-Size: 20022
 MD5sum: 787a241b17038bdb4fb18bb26bc3becb
 Description: لتنزيل الملفات والفيديوات من سفاري
-icon: file:///Library/PreferenceBundles/SafariDownloaderPrefs.bundle/icon@2x.png
-name: Safari Downloader+
-tag: cydia::commercial, compatible::ios8
-depiction: http://id70my.github.io/Depic/safaridownloader/index.html
 author: iD70my <o@outlook.kr>
+name: Safari Downloader+
+icon: file:///Library/PreferenceBundles/SafariDownloaderPrefs.bundle/icon@2x.png
+depiction: http://id70my.github.io/Depic/safaridownloader/index.html
+tag: cydia::commercial, compatible::ios8
 
 Package: io.github.id70my.savegram
-Version: 1.5.2-1
+Version: 1.5.3-1
 Section: Tweaks
 Maintainer: iD70my <o@outlook.kr>
 Pre-Depends: firmware (>= 7.0)
 Depends: mobilesubstrate
 Architecture: iphoneos-arm
-Filename: debs//io.github.id70my.savegram_1.5.2-1_iphoneos-arm.deb
-Size: 57996
-Installed-Size: 168
-MD5sum: dee67d512a107b5cf6f2f9bedc2b1f02
+Filename: debs//io.github.id70my.savegram_1.5.3-1_iphoneos-arm.deb
+Size: 58090
+Installed-Size: 161
+MD5sum: 16240c696b68bda6893a46ddb912a844
 Description: لحفظ الصور والفيديو من الإنستقرام.
-icon: file:///Library/Application Support/SaveGram/icon@2x.png
-name: SaveGram
-tag: cydia::commercial, ios8support::1
-depiction: http://id70my.github.io/Depic/savegram/index.html
 author: iD70my <o@outlook.kr>
+name: SaveGram
+icon: file:///Library/Application Support/SaveGram/icon@2x.png
+depiction: http://id70my.github.io/Depic/savegram/index.html
+tag: cydia::commercial, ios8support::1
 
