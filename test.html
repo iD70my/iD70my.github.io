@@ -9,6 +9,7 @@
         if ($isUDIDProtected){
         	echo "<p style=\"color: red;\">This package is UDID protected! You must be have your device registered to download this package</p>";
         }
+
         if ($compatibleVersions) {
         	$uaString = $_SERVER["HTTP_USER_AGENT"];
         	if (preg_match("/(.*) OS ([0-9]*)_([0-9]*)_([0-9]*) (.*)/", $uaString)) {
