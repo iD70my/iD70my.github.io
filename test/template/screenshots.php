@@ -5,7 +5,7 @@
     <?php
     require("variables.php");
     ?>
-    <link href="../css/ios7.css" rel="stylesheet">
+    <link href="../test/css/ios7.css" rel="stylesheet">
 <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport">
     <?php
         echo "<title>$name</title>";
