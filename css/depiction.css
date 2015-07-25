@@ -5,7 +5,7 @@ body
 	-webkit-text-size-adjust:none;
 	min-height:0px;
 	font-family:helvetica,sans-serif;
-	background:url("../test/images/background.png"),url('../test/images/menutouched.png') no-repeat,url('../test/images/storetouched.png') no-repeat,url("../test/images/arrow.png") no-repeat;
+	background:url("../images/background.png"),url('../images/menutouched.png') no-repeat,url('../images/storetouched.png') no-repeat,url("../images/arrow.png") no-repeat;
 	-webkit-touch-callout:none
 }
 
@@ -34,7 +34,7 @@ img
 
 a:hover span.arrow
 {
-    background-image:url("../test/images/arrow.png")!important
+    background-image:url("../images/arrow.png")!important
 }
 
 #topbar
@@ -44,7 +44,7 @@ a:hover span.arrow
 	top:0;
 	height:44px;
 	width:auto;
-	background:url("../test/images/header.png") repeat;margin-bottom:13px
+	background:url("../images/header.png") repeat;margin-bottom:13px
 }
 
 #title
@@ -211,5 +211,5 @@ li.menu span.arrow
 	right:10px;
 	top:15px;
 	margin:0!important;
-	background:url("../test/images/arrow.png") no-repeat
+	background:url("../images/arrow.png") no-repeat
 }
