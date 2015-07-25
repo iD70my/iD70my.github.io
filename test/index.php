@@ -61,9 +61,9 @@
             }
         }
         
-        /*echo "<ul><li id='downloads'>
+        echo "<ul><li id='downloads'>
         Total Downloads: ".$count."
-        </li></ul>";*/
+        </li></ul>";
         
         if(count($changelog) > 0){
             include("template/index/changelog.php");
