@@ -1,11 +1,11 @@
 <?php    $dep = htmlspecialchars($_GET["dep"]);
     if(file_exists($dep . ".php")){
         require($dep . ".php");
-        include("../test/template/index/head2.php");
+        include("test/template/index/head2.php");
         
         echo "<title>$name</title></head>";
         
-        include("../test/template/index/description.php");
+        include("test/template/index/description.php");
         if ($isUDIDProtected){
         	echo "<p style=\"color: red;\">This package is UDID protected! You must be have your device registered to download this package</p>";
         }
@@ -38,13 +38,13 @@
         }
         
         if($x > 0){
-            include("../test/template/index/screenshots2.php");
+            include("test/template/index/screenshots2.php");
         } else{
             echo "</ul>";
         }
         
         if(strlen($devText) > 1){
-            include("../test/template/index/devLink.php");
+            include("test/template/index/devLink.php");
             echo "<a class=\"devLink\" target=\"_blank\" href=\"$devLink\">$devText</a></li></ul>";
         }
         
@@ -66,7 +66,7 @@
         </li></ul>";
         
         if(count($changelog) > 0){
-            include("../test/template/index/changelog.php");
+            include("test/template/index/changelog.php");
             
             foreach($changelog as $c){
                 echo "<p>$c</p>";
@@ -74,7 +74,7 @@
             echo "</li></ul>";
         }
         
-        include("../test/template/index/footer.php");
+        include("test/template/index/footer.php");
     }
     else{
         echo "Depiction does not exist";
