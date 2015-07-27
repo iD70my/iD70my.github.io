@@ -13,24 +13,24 @@ Installed-Size: 140
 MD5sum: b2c87cf2955742e34b341e3d52a98de0
 Description: الاداة المشهورة لتثبيت التطبيقات المكركة.
 name: AppSync Unified iOS 8
-author: iD70my <o@outlook.kr>
 homepage: http://id70my.github.io/Depic/AppSync-Unified/index.html
 tag: cydia::commercial, ios8support::1
+author: iD70my <o@outlook.kr>
 depiction: http://id70my.github.io/Depic/AppSync-Unified/index.html
 
 Package: io.github.id70my.controlpane
-Version: 1.3
+Version: 1.4
 Section: Tweaks
 Maintainer: iD70my <o@outlook.kr>
 Depends: firmware (>= 7.0), mobilesubstrate (>= 0.9.5000), preferenceloader, libactivator, com.a3tweaks.flipswitch
 Architecture: iphoneos-arm
-Filename: debs//io.github.id70my.controlpane_1.3_iphoneos-arm.deb
-Size: 67860
-MD5sum: fcb45db1b6ab730b3d767e7623b29877
+Filename: debs//io.github.id70my.controlpane_1.4_iphoneos-arm.deb
+Size: 66716
+MD5sum: ac136979f16a80595835aafe3cd0ad28
 Description: أداة لإظهار المزيد من الإعدادات.
 name: ControlPane
-author: iD70my <o@outlook.kr>
 tag: cydia::commercial
+author: iD70my <o@outlook.kr>
 depiction: http://id70my.github.io/Depic/controlpane/index.html
 
 Package: io.github.id70my.cracktool
@@ -43,11 +43,11 @@ Size: 183384
 MD5sum: 7fb48cb7105c13f5a5a78d1bf5d8c3b4
 Description: تكريك الادوات المدفوعة وتفعيلها
 name: CrackTool
-author: iD70my <o@outlook.kr>
-sponsor: iD70my <o@outlook.kr>
 homepage: http://id70my.github.io/Depic/cracktool/index.html
 tag: cydia::commercial, compatible::ios8
+author: iD70my <o@outlook.kr>
 depiction: http://id70my.github.io/Depic/cracktool/index.html
+sponsor: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.cydown
 Version: 5.9.6
@@ -58,10 +58,10 @@ Filename: debs//io.github.id70my.cydown_5.9.6_iphoneos-arm.deb
 Size: 498480
 MD5sum: adc4d49dc2801c72523c1879e7dab0e9
 Description: لتثبيت الادوات المدفوعة مجاناً
-icon: file:///Library/PreferenceBundles/CyDownSettings.bundle/CyDown@2x.png
 name: CyDown
-author: iD70my <o@outlook.kr>
 tag: cydia::commercial
+author: iD70my <o@outlook.kr>
+icon: file:///Library/PreferenceBundles/CyDownSettings.bundle/CyDown@2x.png
 depiction: http://id70my.github.io/Depic/cydown/index.html
 
 Package: io.github.id70my.filza
@@ -75,8 +75,8 @@ Size: 9255452
 MD5sum: 190d4bc6380144737493344bec8c2969
 Description: تطبيق لتصفح ملفات الاي فون
 name: Filza File Manager
-author: iD70my <o@outlook.kr>
 tag: cydia::commercial, compatible::ios8
+author: iD70my <o@outlook.kr>
 depiction: http://id70my.github.io/Depic/filza/index.html
 
 Package: io.github.id70my.h
@@ -90,12 +90,12 @@ Filename: debs//io.github.id70my.h_0.9.17_iphoneos-arm.deb
 Size: 332952
 MD5sum: 4ebb498f41b7612ce3a834c2c671ad79
 Description: اداة لحذف الجلبريك وعمل رستورت للجهاز
-icon: file:///Applications/Impactor.app/Icon-60.png
 name: Cydia Impactor
-author: iD70my <o@outlook.kr>
-breaks: com.saurik.patych (<< 1.0.1)
 tag: cydia::commercial, compatible::ios8
+author: iD70my <o@outlook.kr>
+icon: file:///Applications/Impactor.app/Icon-60.png
 depiction: http://id70my.github.io/Depic/impactor/index.html
+breaks: com.saurik.patych (<< 1.0.1)
 
 Package: io.github.id70my.ikeywi3
 Version: 3.1.0-3
@@ -109,8 +109,8 @@ Size: 343244
 MD5sum: 14adf0bb618b74d2ec81ae83ad032534
 Description: لإضافة صف إضافي للوحة المفاتيح والتحكم به
 name: iKeywi 3 (iOS 8)
-author: iD70my <o@outlook.kr>
 tag: cydia::commercial, compatible::ios8
+author: iD70my <o@outlook.kr>
 depiction: http://id70my.github.io/Depic/ikeywi3/index.html
 
 Package: io.github.id70my.infinitetweet2
@@ -125,13 +125,13 @@ Size: 1193740
 Installed-Size: 1313
 MD5sum: 234eeeede20d26946e292192f2a3d869
 Description: للتغريد بأكثر من ١٤٠ حرف
-icon: file:///Library/PreferenceBundles/infinitetweet.bundle/infinitetweet@2x.png
 name: Infinite Tweet 2
 dev: iD70my
-author: iD70my <o@outlook.kr>
-sponsor: iD70my <o@outlook.kr>
 tag: cydia::commercial, compatible::ios8
+author: iD70my <o@outlook.kr>
+icon: file:///Library/PreferenceBundles/infinitetweet.bundle/infinitetweet@2x.png
 depiction: http://id70my.github.io/Depic/infinitetweet2/index.html
+sponsor: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.linkstoreios8
 Version: 1.2
@@ -144,8 +144,8 @@ Size: 1304356
 MD5sum: df8ec4fccef776d1775954e8856b896f
 Description: تحميل برامج مكركة من آب ستور ‫(‬معربة‫)‬
 name: LinkStore for iOS 8
-author: iD70my <o@outlook.kr>
 tag: cydia::commercial, ios8support::1
+author: iD70my <o@outlook.kr>
 depiction: http://id70my.github.io/Depic/linkstoreios8/index.html
 
 Package: io.github.id70my.phantom
@@ -160,12 +160,12 @@ Filename: debs//io.github.id70my.phantom_4.3.2-2_iphoneos-arm.deb
 Size: 11783286
 MD5sum: 6c6592c4b35a5cec76e5b34358ee42ed
 Description: لتحكم في السناب شات بدون حضر الحساب
-icon: file:///Library/PreferenceLoader/Preferences/phantomIcon@2x.png
 name: Phantom for Snapchat
-author: iD70my <o@outlook.kr>
-sponsor: iD70my <o@outlook.kr>
 tag: cydia::commercial, compatible::ios8
+author: iD70my <o@outlook.kr>
+icon: file:///Library/PreferenceLoader/Preferences/phantomIcon@2x.png
 depiction: http://id70my.github.io/Depic/phantom/index.html
+sponsor: iD70my <o@outlook.kr>
 
 Package: io.github.id70my.safaridownloaderplus
 Version: 3.9-4
@@ -180,10 +180,10 @@ Size: 15650526
 Installed-Size: 20022
 MD5sum: 787a241b17038bdb4fb18bb26bc3becb
 Description: لتنزيل الملفات والفيديوات من سفاري
-icon: file:///Library/PreferenceBundles/SafariDownloaderPrefs.bundle/icon@2x.png
 name: Safari Downloader+
-author: iD70my <o@outlook.kr>
 tag: cydia::commercial, compatible::ios8
+author: iD70my <o@outlook.kr>
+icon: file:///Library/PreferenceBundles/SafariDownloaderPrefs.bundle/icon@2x.png
 depiction: http://id70my.github.io/Depic/safaridownloader/index.html
 
 Package: io.github.id70my.savegram
@@ -198,9 +198,9 @@ Size: 58090
 Installed-Size: 161
 MD5sum: 16240c696b68bda6893a46ddb912a844
 Description: لحفظ الصور والفيديو من الإنستقرام.
-icon: file:///Library/Application Support/SaveGram/icon@2x.png
 name: SaveGram
-author: iD70my <o@outlook.kr>
 tag: cydia::commercial, ios8support::1
+author: iD70my <o@outlook.kr>
+icon: file:///Library/Application Support/SaveGram/icon@2x.png
 depiction: http://id70my.github.io/Depic/savegram/index.html
 
