@@ -49,6 +49,11 @@ jQuery(document).ready(function(){
 				direction = ( visibleSlidePosition < selectedSlidePosition) ? 'next': 'prev';
 				updateSlide(visibleSlide, selectedSlide, direction, svgCoverLayer, sliderNavigation, pathArray, svgPath);
 			}
+<<<<<<< HEAD
+=======
+		    var newLetters = letters.join('');
+		    word.html(newLetters);
+>>>>>>> origin/master
 		});
 	}
 
@@ -125,6 +130,7 @@ jQuery(document).ready(function(){
 			if (t2 < t0) return curveY(t0);
 			if (t2 > t1) return curveY(t1);
 
+<<<<<<< HEAD
 			// Fallback to the bisection method for reliability.
 			while (t0 < t1){
 				x2 = curveX(t2);
@@ -140,3 +146,68 @@ jQuery(document).ready(function(){
 		};
 	};
 });
+=======
+	function switchWord($oldWord, $newWord) {
+		$oldWord.removeClass('is-visible').addClass('is-hidden');
+		$newWord.removeClass('is-hidden').addClass('is-visible');
+	}
+
+	//this is for the demo only
+	var intro = $('.cd-intro');
+	$('.cd-filter input').on('change', function(event){
+		var selected = $(event.target).attr('id')
+		switch(selected) {
+			case 'rotate-1':
+				intro.load('content.html .rotate-1', function(){
+					initHeadline();
+				});
+				break;
+			case 'type':
+				intro.load('content.html .type', function(){
+					initHeadline();
+				});
+				break;
+			case 'rotate-2':
+				intro.load('content.html .rotate-2', function(){
+					initHeadline();
+				});
+				break;
+			case 'loading-bar':
+				intro.load('content.html .loading-bar', function(){
+					initHeadline();
+				});
+				break;
+			case 'slide':
+				intro.load('content.html .slide', function(){
+					initHeadline();
+				});
+				break;
+			case 'clip':
+				intro.load('content.html .clip', function(){
+					initHeadline();
+				});
+				break;
+			case 'zoom':
+				intro.load('content.html .zoom', function(){
+					initHeadline();
+				});
+				break;
+			case 'rotate-3':
+				intro.load('content.html .rotate-3', function(){
+					initHeadline();
+				});
+				break;
+			case 'scale':
+				intro.load('content.html .scale', function(){
+					initHeadline();
+				});
+				break;
+			case 'push':
+				intro.load('content.html .push', function(){
+					initHeadline();
+				});
+				break;
+		}
+	});
+});
+>>>>>>> origin/master
