@@ -1,154 +1,142 @@
-jQuery(document).ready(function($){
-	//set animation timing
-	var animationDelay = 2500,
-		//loading bar effect
-		barAnimationDelay = 3800,
-		barWaiting = barAnimationDelay - 3000, //3000 is the duration of the transition on the loading bar - set in the scss/css file
-		//letters effect
-		lettersDelay = 50,
-		//type effect
-		typeLettersDelay = 150,
-		selectionDuration = 500,
-		typeAnimationDelay = selectionDuration + 800,
-		//clip effect 
-		revealDuration = 600,
-		revealAnimationDelay = 1500;
-	
-	initHeadline();
-	
+jQuery(document).ready(function(){
+	/*
+		convert a cubic bezier value to a custom mina easing
+		http://stackoverflow.com/questions/25265197/how-to-convert-a-cubic-bezier-value-to-a-custom-mina-easing-snap-svg
+	*/
+	var duration = 300,
+		delay = 300,
+		epsilon = (1000 / 60 / duration) / 4,
+		firstCustomMinaAnimation = bezier(.42,.03,.77,.63, epsilon),
+		secondCustomMinaAnimation = bezier(.27,.5,.6,.99, epsilon);
 
-	function initHeadline() {
-		//insert <i> element for each letter of a changing word
-		singleLetters($('.cd-headline.letters').find('b'));
-		//initialise headline animation
-		animateHeadline($('.cd-headline'));
-	}
+	//initialize the slider
+	$('.cd-slider-wrapper').each(function(){
+		initSlider($(this));
+	});
 
-	function singleLetters($words) {
-		$words.each(function(){
-			var word = $(this),
-				letters = word.text().split(''),
-				selected = word.hasClass('is-visible');
-			for (i in letters) {
-				if(word.parents('.rotate-2').length > 0) letters[i] = '<em>' + letters[i] + '</em>';
-				letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
+	function initSlider(sliderWrapper) {
+		//cache jQuery objects
+		var slider = sliderWrapper.find('.cd-slider'),
+			sliderNavigation = sliderWrapper.find('.cd-slider-navigation').find('li'),
+			svgCoverLayer = sliderWrapper.find('div.cd-svg-cover'),
+			pathId = svgCoverLayer.find('path').attr('id'),
+			svgPath = Snap('#'+pathId);
+		
+		//store path 'd' attribute values	
+		var pathArray = [];
+		pathArray[0] = svgCoverLayer.data('step1');
+		pathArray[1] = svgCoverLayer.data('step6');
+		pathArray[2] = svgCoverLayer.data('step2');
+		pathArray[3] = svgCoverLayer.data('step7');
+		pathArray[4] = svgCoverLayer.data('step3');
+		pathArray[5] = svgCoverLayer.data('step8');
+		pathArray[6] = svgCoverLayer.data('step4');
+		pathArray[7] = svgCoverLayer.data('step9');
+		pathArray[8] = svgCoverLayer.data('step5');
+		pathArray[9] = svgCoverLayer.data('step10');	
+
+		//update visible slide when user clicks .cd-slider-navigation buttons
+		sliderNavigation.on('click', function(event){
+			event.preventDefault();
+			var selectedItem = $(this);
+			if(!selectedItem.hasClass('selected')) {
+				// if it's not already selected
+				var selectedSlidePosition = selectedItem.index(),
+					selectedSlide = slider.children('li').eq(selectedSlidePosition),
+					visibleSlide = slider.find('.visible'),
+					visibleSlidePosition = visibleSlide.index(),
+					direction = '';
+				direction = ( visibleSlidePosition < selectedSlidePosition) ? 'next': 'prev';
+				updateSlide(visibleSlide, selectedSlide, direction, svgCoverLayer, sliderNavigation, pathArray, svgPath);
 			}
-		    var newLetters = letters.join('');
-		    word.html(newLetters).css('opacity', 1);
 		});
 	}
 
-	function animateHeadline($headlines) {
-		var duration = animationDelay;
-		$headlines.each(function(){
-			var headline = $(this);
-			
-			if(headline.hasClass('loading-bar')) {
-				duration = barAnimationDelay;
-				setTimeout(function(){ headline.find('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
-			} else if (headline.hasClass('clip')){
-				var spanWrapper = headline.find('.cd-words-wrapper'),
-					newWidth = spanWrapper.width() + 10
-				spanWrapper.css('width', newWidth);
-			} else if (!headline.hasClass('type') ) {
-				//assign to .cd-words-wrapper the width of its longest word
-				var words = headline.find('.cd-words-wrapper b'),
-					width = 0;
-				words.each(function(){
-					var wordWidth = $(this).width();
-				    if (wordWidth > width) width = wordWidth;
-				});
-				headline.find('.cd-words-wrapper').css('width', width);
-			};
-
-			//trigger animation
-			setTimeout(function(){ hideWord( headline.find('.is-visible').eq(0) ) }, duration);
-		});
-	}
-
-	function hideWord($word) {
-		var nextWord = takeNext($word);
-		
-		if($word.parents('.cd-headline').hasClass('type')) {
-			var parentSpan = $word.parent('.cd-words-wrapper');
-			parentSpan.addClass('selected').removeClass('waiting');	
-			setTimeout(function(){ 
-				parentSpan.removeClass('selected'); 
-				$word.removeClass('is-visible').addClass('is-hidden').children('i').removeClass('in').addClass('out');
-			}, selectionDuration);
-			setTimeout(function(){ showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
-		
-		} else if($word.parents('.cd-headline').hasClass('letters')) {
-			var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
-			hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
-			showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
-
-		}  else if($word.parents('.cd-headline').hasClass('clip')) {
-			$word.parents('.cd-words-wrapper').animate({ width : '2px' }, revealDuration, function(){
-				switchWord($word, nextWord);
-				showWord(nextWord);
-			});
-
-		} else if ($word.parents('.cd-headline').hasClass('loading-bar')){
-			$word.parents('.cd-words-wrapper').removeClass('is-loading');
-			switchWord($word, nextWord);
-			setTimeout(function(){ hideWord(nextWord) }, barAnimationDelay);
-			setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
-
+	function updateSlide(oldSlide, newSlide, direction, svgCoverLayer, sliderNavigation, paths, svgPath) {
+		if( direction == 'next' ) {
+			var path1 = paths[0],
+				path2 = paths[2],
+				path3 = paths[4];
+				path4 = paths[6];
+				path5 = paths[8];
 		} else {
-			switchWord($word, nextWord);
-			setTimeout(function(){ hideWord(nextWord) }, animationDelay);
+			var path1 = paths[1],
+				path2 = paths[3],
+				path3 = paths[5];
+				path4 = paths[7];
+				path5 = paths[9];
 		}
-	}
 
-	function showWord($word, $duration) {
-		if($word.parents('.cd-headline').hasClass('type')) {
-			showLetter($word.find('i').eq(0), $word, false, $duration);
-			$word.addClass('is-visible').removeClass('is-hidden');
-
-		}  else if($word.parents('.cd-headline').hasClass('clip')) {
-			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){ 
-				setTimeout(function(){ hideWord($word) }, revealAnimationDelay); 
+		svgCoverLayer.addClass('is-animating');
+		svgPath.attr('d', path1);
+		svgPath.animate({'d': path2}, duration, firstCustomMinaAnimation, function(){
+			svgPath.animate({'d': path3}, duration, secondCustomMinaAnimation, function(){
+				oldSlide.removeClass('visible');
+				newSlide.addClass('visible');
+				updateNavSlide(newSlide, sliderNavigation);
+				setTimeout(function(){
+					svgPath.animate({'d': path4}, duration, firstCustomMinaAnimation, function(){
+						svgPath.animate({'d': path5}, duration, secondCustomMinaAnimation, function(){
+							svgCoverLayer.removeClass('is-animating');
+						});
+					});
+				}, delay);
 			});
-		}
+		});
 	}
 
-	function hideLetter($letter, $word, $bool, $duration) {
-		$letter.removeClass('in').addClass('out');
-		
-		if(!$letter.is(':last-child')) {
-		 	setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);  
-		} else if($bool) { 
-		 	setTimeout(function(){ hideWord(takeNext($word)) }, animationDelay);
-		}
-
-		if($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
-			var nextWord = takeNext($word);
-			switchWord($word, nextWord);
-		} 
+	function updateNavSlide(actualSlide, sliderNavigation) {
+		var position = actualSlide.index();
+		sliderNavigation.removeClass('selected').eq(position).addClass('selected');
 	}
 
-	function showLetter($letter, $word, $bool, $duration) {
-		$letter.addClass('in').removeClass('out');
-		
-		if(!$letter.is(':last-child')) { 
-			setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration); 
-		} else { 
-			if($word.parents('.cd-headline').hasClass('type')) { setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('waiting'); }, 200);}
-			if(!$bool) { setTimeout(function(){ hideWord($word) }, animationDelay) }
-		}
-	}
+	function bezier(x1, y1, x2, y2, epsilon){
+		//https://github.com/arian/cubic-bezier
+		var curveX = function(t){
+			var v = 1 - t;
+			return 3 * v * v * t * x1 + 3 * v * t * t * x2 + t * t * t;
+		};
 
-	function takeNext($word) {
-		return (!$word.is(':last-child')) ? $word.next() : $word.parent().children().eq(0);
-	}
+		var curveY = function(t){
+			var v = 1 - t;
+			return 3 * v * v * t * y1 + 3 * v * t * t * y2 + t * t * t;
+		};
 
-	function takePrev($word) {
-		return (!$word.is(':first-child')) ? $word.prev() : $word.parent().children().last();
-	}
+		var derivativeCurveX = function(t){
+			var v = 1 - t;
+			return 3 * (2 * (t - 1) * t + v * v) * x1 + 3 * (- t * t * t + 2 * v * t) * x2;
+		};
 
-	function switchWord($oldWord, $newWord) {
-		$oldWord.removeClass('is-visible').addClass('is-hidden');
-		$newWord.removeClass('is-hidden').addClass('is-visible');
-	}
+		return function(t){
+
+			var x = t, t0, t1, t2, x2, d2, i;
+
+			// First try a few iterations of Newton's method -- normally very fast.
+			for (t2 = x, i = 0; i < 8; i++){
+				x2 = curveX(t2) - x;
+				if (Math.abs(x2) < epsilon) return curveY(t2);
+				d2 = derivativeCurveX(t2);
+				if (Math.abs(d2) < 1e-6) break;
+				t2 = t2 - x2 / d2;
+			}
+
+			t0 = 0, t1 = 1, t2 = x;
+
+			if (t2 < t0) return curveY(t0);
+			if (t2 > t1) return curveY(t1);
+
+			// Fallback to the bisection method for reliability.
+			while (t0 < t1){
+				x2 = curveX(t2);
+				if (Math.abs(x2 - x) < epsilon) return curveY(t2);
+				if (x > x2) t0 = t2;
+				else t1 = t2;
+				t2 = (t1 - t0) * .5 + t0;
+			}
+
+			// Failure
+			return curveY(t2);
+
+		};
+	};
 });
