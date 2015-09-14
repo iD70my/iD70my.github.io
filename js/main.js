@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
 				letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
 			}
 		    var newLetters = letters.join('');
-		    word.html(newLetters).css('opacity', 1);
+		    word.html(newLetters);
 		});
 	}
 
@@ -151,4 +151,62 @@ jQuery(document).ready(function($){
 		$oldWord.removeClass('is-visible').addClass('is-hidden');
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}
+
+	//this is for the demo only
+	var intro = $('.cd-intro');
+	$('.cd-filter input').on('change', function(event){
+		var selected = $(event.target).attr('id')
+		switch(selected) {
+			case 'rotate-1':
+				intro.load('content.html .rotate-1', function(){
+					initHeadline();
+				});
+				break;
+			case 'type':
+				intro.load('content.html .type', function(){
+					initHeadline();
+				});
+				break;
+			case 'rotate-2':
+				intro.load('content.html .rotate-2', function(){
+					initHeadline();
+				});
+				break;
+			case 'loading-bar':
+				intro.load('content.html .loading-bar', function(){
+					initHeadline();
+				});
+				break;
+			case 'slide':
+				intro.load('content.html .slide', function(){
+					initHeadline();
+				});
+				break;
+			case 'clip':
+				intro.load('content.html .clip', function(){
+					initHeadline();
+				});
+				break;
+			case 'zoom':
+				intro.load('content.html .zoom', function(){
+					initHeadline();
+				});
+				break;
+			case 'rotate-3':
+				intro.load('content.html .rotate-3', function(){
+					initHeadline();
+				});
+				break;
+			case 'scale':
+				intro.load('content.html .scale', function(){
+					initHeadline();
+				});
+				break;
+			case 'push':
+				intro.load('content.html .push', function(){
+					initHeadline();
+				});
+				break;
+		}
+	});
 });
