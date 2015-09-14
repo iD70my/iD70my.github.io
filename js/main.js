@@ -1,213 +1,75 @@
-jQuery(document).ready(function(){
-	/*
-		convert a cubic bezier value to a custom mina easing
-		http://stackoverflow.com/questions/25265197/how-to-convert-a-cubic-bezier-value-to-a-custom-mina-easing-snap-svg
-	*/
-	var duration = 300,
-		delay = 300,
-		epsilon = (1000 / 60 / duration) / 4,
-		firstCustomMinaAnimation = bezier(.42,.03,.77,.63, epsilon),
-		secondCustomMinaAnimation = bezier(.27,.5,.6,.99, epsilon);
+jQuery(document).ready(function(event){
+  var isAnimating = false,
+    firstLoad = false;
+  
+  //trigger smooth transition from the actual page to the new one 
+  $('main').on('click', '[data-type="page-transition"]', function(event){
+    event.preventDefault();
+    //detect which page has been selected
+    var newPage = $(this).attr('href');
+    //if the page is not already being animated - trigger animation
+    if( !isAnimating ) changePage(newPage, true);
+    firstLoad = true;
+  });
 
-	//initialize the slider
-	$('.cd-slider-wrapper').each(function(){
-		initSlider($(this));
+  //detect the 'popstate' event - e.g. user clicking the back button
+  $(window).on('popstate', function() {
+  	if( firstLoad ) {
+      /*
+      Safari emits a popstate event on page load - check if firstLoad is true before animating
+      if it's false - the page has just been loaded 
+      */
+      var newPageArray = location.pathname.split('/'),
+        //this is the url of the page to be loaded 
+        newPage = newPageArray[newPageArray.length - 1];
+      if( !isAnimating ) changePage(newPage, false);
+    }
+    firstLoad = true;
 	});
 
-	function initSlider(sliderWrapper) {
-		//cache jQuery objects
-		var slider = sliderWrapper.find('.cd-slider'),
-			sliderNavigation = sliderWrapper.find('.cd-slider-navigation').find('li'),
-			svgCoverLayer = sliderWrapper.find('div.cd-svg-cover'),
-			pathId = svgCoverLayer.find('path').attr('id'),
-			svgPath = Snap('#'+pathId);
-		
-		//store path 'd' attribute values	
-		var pathArray = [];
-		pathArray[0] = svgCoverLayer.data('step1');
-		pathArray[1] = svgCoverLayer.data('step6');
-		pathArray[2] = svgCoverLayer.data('step2');
-		pathArray[3] = svgCoverLayer.data('step7');
-		pathArray[4] = svgCoverLayer.data('step3');
-		pathArray[5] = svgCoverLayer.data('step8');
-		pathArray[6] = svgCoverLayer.data('step4');
-		pathArray[7] = svgCoverLayer.data('step9');
-		pathArray[8] = svgCoverLayer.data('step5');
-		pathArray[9] = svgCoverLayer.data('step10');	
+	function changePage(url, bool) {
+    isAnimating = true;
+    // trigger page animation
+    $('body').addClass('page-is-changing');
+    $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+    	loadNewContent(url, bool);
+      $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+    });
+    //if browser doesn't support CSS transitions
+    if( !transitionsSupported() ) loadNewContent(url, bool);
+	}
 
-		//update visible slide when user clicks .cd-slider-navigation buttons
-		sliderNavigation.on('click', function(event){
-			event.preventDefault();
-			var selectedItem = $(this);
-			if(!selectedItem.hasClass('selected')) {
-				// if it's not already selected
-				var selectedSlidePosition = selectedItem.index(),
-					selectedSlide = slider.children('li').eq(selectedSlidePosition),
-					visibleSlide = slider.find('.visible'),
-					visibleSlidePosition = visibleSlide.index(),
-					direction = '';
-				direction = ( visibleSlidePosition < selectedSlidePosition) ? 'next': 'prev';
-				updateSlide(visibleSlide, selectedSlide, direction, svgCoverLayer, sliderNavigation, pathArray, svgPath);
-			}
-<<<<<<< HEAD
-=======
-		    var newLetters = letters.join('');
-		    word.html(newLetters);
->>>>>>> origin/master
+	function loadNewContent(url, bool) {
+		url = ('' == url) ? 'index.html' : url;
+  	var newSection = 'cd-'+url.replace('.html', '');
+  	var section = $('<div class="cd-main-content '+newSection+'"></div>');
+  		
+  	section.load(url+' .cd-main-content > *', function(event){
+      // load new content and replace <main> content with the new one
+      $('main').html(section);
+      //if browser doesn't support CSS transitions - dont wait for the end of transitions
+      var delay = ( transitionsSupported() ) ? 1200 : 0;
+      setTimeout(function(){
+        //wait for the end of the transition on the loading bar before revealing the new content
+        ( section.hasClass('cd-about') ) ? $('body').addClass('cd-about') : $('body').removeClass('cd-about');
+        $('body').removeClass('page-is-changing');
+        $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+          isAnimating = false;
+          $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+        });
+
+        if( !transitionsSupported() ) isAnimating = false;
+      }, delay);
+      
+      if(url!=window.location && bool){
+        //add the new page to the window.history
+        //if the new page was triggered by a 'popstate' event, don't add it
+        window.history.pushState({path: url},'',url);
+      }
 		});
-	}
+  }
 
-	function updateSlide(oldSlide, newSlide, direction, svgCoverLayer, sliderNavigation, paths, svgPath) {
-		if( direction == 'next' ) {
-			var path1 = paths[0],
-				path2 = paths[2],
-				path3 = paths[4];
-				path4 = paths[6];
-				path5 = paths[8];
-		} else {
-			var path1 = paths[1],
-				path2 = paths[3],
-				path3 = paths[5];
-				path4 = paths[7];
-				path5 = paths[9];
-		}
-
-		svgCoverLayer.addClass('is-animating');
-		svgPath.attr('d', path1);
-		svgPath.animate({'d': path2}, duration, firstCustomMinaAnimation, function(){
-			svgPath.animate({'d': path3}, duration, secondCustomMinaAnimation, function(){
-				oldSlide.removeClass('visible');
-				newSlide.addClass('visible');
-				updateNavSlide(newSlide, sliderNavigation);
-				setTimeout(function(){
-					svgPath.animate({'d': path4}, duration, firstCustomMinaAnimation, function(){
-						svgPath.animate({'d': path5}, duration, secondCustomMinaAnimation, function(){
-							svgCoverLayer.removeClass('is-animating');
-						});
-					});
-				}, delay);
-			});
-		});
-	}
-
-	function updateNavSlide(actualSlide, sliderNavigation) {
-		var position = actualSlide.index();
-		sliderNavigation.removeClass('selected').eq(position).addClass('selected');
-	}
-
-	function bezier(x1, y1, x2, y2, epsilon){
-		//https://github.com/arian/cubic-bezier
-		var curveX = function(t){
-			var v = 1 - t;
-			return 3 * v * v * t * x1 + 3 * v * t * t * x2 + t * t * t;
-		};
-
-		var curveY = function(t){
-			var v = 1 - t;
-			return 3 * v * v * t * y1 + 3 * v * t * t * y2 + t * t * t;
-		};
-
-		var derivativeCurveX = function(t){
-			var v = 1 - t;
-			return 3 * (2 * (t - 1) * t + v * v) * x1 + 3 * (- t * t * t + 2 * v * t) * x2;
-		};
-
-		return function(t){
-
-			var x = t, t0, t1, t2, x2, d2, i;
-
-			// First try a few iterations of Newton's method -- normally very fast.
-			for (t2 = x, i = 0; i < 8; i++){
-				x2 = curveX(t2) - x;
-				if (Math.abs(x2) < epsilon) return curveY(t2);
-				d2 = derivativeCurveX(t2);
-				if (Math.abs(d2) < 1e-6) break;
-				t2 = t2 - x2 / d2;
-			}
-
-			t0 = 0, t1 = 1, t2 = x;
-
-			if (t2 < t0) return curveY(t0);
-			if (t2 > t1) return curveY(t1);
-
-<<<<<<< HEAD
-			// Fallback to the bisection method for reliability.
-			while (t0 < t1){
-				x2 = curveX(t2);
-				if (Math.abs(x2 - x) < epsilon) return curveY(t2);
-				if (x > x2) t0 = t2;
-				else t1 = t2;
-				t2 = (t1 - t0) * .5 + t0;
-			}
-
-			// Failure
-			return curveY(t2);
-
-		};
-	};
+  function transitionsSupported() {
+    return $('html').hasClass('csstransitions');
+  }
 });
-=======
-	function switchWord($oldWord, $newWord) {
-		$oldWord.removeClass('is-visible').addClass('is-hidden');
-		$newWord.removeClass('is-hidden').addClass('is-visible');
-	}
-
-	//this is for the demo only
-	var intro = $('.cd-intro');
-	$('.cd-filter input').on('change', function(event){
-		var selected = $(event.target).attr('id')
-		switch(selected) {
-			case 'rotate-1':
-				intro.load('content.html .rotate-1', function(){
-					initHeadline();
-				});
-				break;
-			case 'type':
-				intro.load('content.html .type', function(){
-					initHeadline();
-				});
-				break;
-			case 'rotate-2':
-				intro.load('content.html .rotate-2', function(){
-					initHeadline();
-				});
-				break;
-			case 'loading-bar':
-				intro.load('content.html .loading-bar', function(){
-					initHeadline();
-				});
-				break;
-			case 'slide':
-				intro.load('content.html .slide', function(){
-					initHeadline();
-				});
-				break;
-			case 'clip':
-				intro.load('content.html .clip', function(){
-					initHeadline();
-				});
-				break;
-			case 'zoom':
-				intro.load('content.html .zoom', function(){
-					initHeadline();
-				});
-				break;
-			case 'rotate-3':
-				intro.load('content.html .rotate-3', function(){
-					initHeadline();
-				});
-				break;
-			case 'scale':
-				intro.load('content.html .scale', function(){
-					initHeadline();
-				});
-				break;
-			case 'push':
-				intro.load('content.html .push', function(){
-					initHeadline();
-				});
-				break;
-		}
-	});
-});
->>>>>>> origin/master
