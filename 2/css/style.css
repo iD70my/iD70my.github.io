@@ -3,6 +3,8 @@
 Primary style
 
 -------------------------------- */
+@import url(font.css);
+
 *, *::after, *::before {
   box-sizing: border-box;
 }
