@@ -19,6 +19,7 @@ body {
   color: #1f4c74;
   background-color: #f2f2f2;
 }
+
 h1 {
   margin: 0 0 32px 0;
   color: #3b414b;
@@ -26,6 +27,7 @@ h1 {
   font-size: 8em;
   font-family: 'JF Flat Light', 'Geeza Pro', Tahoma, sans-serif;
 }
+
 a {
   color: #dab433;
   text-decoration: none;
