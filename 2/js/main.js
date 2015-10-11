@@ -3,6 +3,24 @@ jQuery(document).ready(function(){
 		coverLayer = $('.cd-cover-layer');
 	
 	/*
+تجربة	
+	*/
+var animationDelay = 2500;
+ 
+animateHeadline($('.cd-headline'));
+ 
+function animateHeadline($headlines) {
+	$headlines.each(function(){
+		var headline = $(this);
+		//trigger animation
+		setTimeout(function(){ hideWord( headline.find('.is-visible') ) }, animationDelay);
+		//other checks here ...
+	});
+}	
+	/*
+تجربة	
+	*/
+	/*
 		convert a cubic bezier value to a custom mina easing
 		http://stackoverflow.com/questions/25265197/how-to-convert-a-cubic-bezier-value-to-a-custom-mina-easing-snap-svg
 	*/
