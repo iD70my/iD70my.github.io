@@ -239,7 +239,7 @@ Modal Window
 -------------------------------- */
 .cd-headline.rotate-1 .cd-words-wrapper {
   display: inline-block;
-  perspective: 300px;
+  perspective: 100px;
 }
 
 .cd-headline.rotate-1 b {
