@@ -1,0 +1,392 @@
+.selectedanchor{ /*CSS class that gets added to the currently selected anchor link (assuming it's a text link)*/
+
+}
+
+/* ######### Default class for drop down menus ######### */
+
+.anylinkmenu{
+position: absolute;
+right: 2;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+border-bottom-width: 0;
+font: normal 12px tahoma;
+line-height: 18px;
+text-align: right;
+direction:rtl;
+z-index: 100; /* zIndex should be greater than that of shadow's below */
+background: lightyellow;
+width: 120px; /* default width for menu */
+}
+
+.anylinkmenu ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.anylinkmenu ul li a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid black;
+padding: 2px 0;
+text-decoration: none;
+font-weight: normal;
+text-indent: 5px;
+}
+
+.anylinkmenu a:hover{ /*hover background color*/
+background: #ad2121;
+color: white;
+}
+
+.anylinkmenu1{
+position: absolute;
+right: 2;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+border-bottom-width: 0;
+font: normal 12px tahoma;
+line-height: 18px;
+text-align: right;
+direction:rtl;
+z-index: 100; /* zIndex should be greater than that of shadow's below */
+background: lightyellow;
+width: 120px; /* default width for menu */
+}
+
+.anylinkmenu1 ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.anylinkmenu1 ul li a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid black;
+padding: 2px 0;
+text-decoration: none;
+font-weight: normal;
+text-indent: 5px;
+}
+
+.anylinkmenu1 a:hover{ /*hover background color*/
+background: #1ca8dd;
+color: white;
+}
+
+.anylinkmenu2{
+position: absolute;
+right: 2;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+border-bottom-width: 0;
+font: normal 12px tahoma;
+line-height: 18px;
+text-align: right;
+direction:rtl;
+z-index: 100; /* zIndex should be greater than that of shadow's below */
+background: lightyellow;
+width: 120px; /* default width for menu */
+}
+
+.anylinkmenu2 ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.anylinkmenu2 ul li a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid black;
+padding: 2px 0;
+text-decoration: none;
+font-weight: normal;
+text-indent: 5px;
+}
+
+.anylinkmenu2 a:hover{ /*hover background color*/
+background: #4b8411;
+color: white;
+}
+/* ######### Alternate multi-column class for drop down menus ######### */
+
+
+
+
+.anylinkmenucols{
+position: absolute;
+width: 430px;
+left: 0;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+padding: 10px;
+font: normal 12px tahoma;
+text-align: right;
+direction:rtl;
+z-index: 100; /*zIndex should be greater than that of shadow's below*/
+background: #E9E9E9;
+}
+
+.anylinkmenucols li{
+padding-bottom: 3px;
+}
+
+.anylinkmenucols .column{
+float: left;
+padding: 3px 8px;
+margin-right: 5px;
+background: #E0E0E0;
+}
+
+.anylinkmenucols .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+
+
+/* ######### class for shadow DIV ######### */
+/* ######### Alternate multi-column class for drop down menus ######### */
+
+
+.anylinkmenucols1{
+position: absolute;
+width: 350px;
+left: 0;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+padding: 10px;
+font: normal 12px tahoma;
+text-align: right;
+direction:rtl;
+z-index: 100; /*zIndex should be greater than that of shadow's below*/
+background: #E9E9E9;
+}
+
+.anylinkmenucols1 li{
+padding-bottom: 3px;
+}
+
+.anylinkmenucols1 .column{
+float: left;
+padding: 3px 8px;
+margin-right: 5px;
+background: #E0E0E0;
+}
+
+.anylinkmenucols1 .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+
+
+/* ######### class for shadow DIV ######### */
+/* ######### Alternate multi-column class for drop down menus ######### */
+
+
+.anylinkmenucols2{
+position: absolute;
+width: 490px;
+left: 0;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+padding: 10px;
+font: normal 12px tahoma;
+text-align: right;
+direction:rtl;
+z-index: 100; /*zIndex should be greater than that of shadow's below*/
+background: #E9E9E9;
+}
+
+.anylinkmenucols2 li{
+padding-bottom: 3px;
+}
+
+.anylinkmenucols2 .column{
+float: left;
+padding: 3px 8px;
+margin-right: 5px;
+background: #E0E0E0;
+}
+
+.anylinkmenucols2 .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+
+
+/* ######### class for shadow DIV ######### */
+
+.bh_top_cl{
+position: absolute;
+width: 550px;
+left: 0;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+padding: 10px;
+font: normal 12px tahoma;
+text-align: right;
+direction:rtl;
+z-index: 100; /*zIndex should be greater than that of shadow's below*/
+background: #E9E9E9;
+}
+
+.bh_top_cl li{
+padding-bottom: 3px;
+}
+
+.bh_top_cl .column{
+float: left;
+padding: 3px 8px;
+margin-right: 5px;
+background: #E0E0E0;
+}
+
+.bh_top_cl .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+
+
+/* ######### class for shadow DIV ######### */
+/* ######### Alternate multi-column class for drop down menus ######### */
+
+
+.anylinkmenucols3{
+position: absolute;
+width: 450px;
+left: 0;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+padding: 10px;
+font: normal 12px tahoma;
+text-align: right;
+direction:rtl;
+z-index: 100; /*zIndex should be greater than that of shadow's below*/
+background: #E9E9E9;
+}
+
+.anylinkmenucols3 li{
+padding-bottom: 3px;
+}
+
+.anylinkmenucols3 .column{
+float: left;
+padding: 3px 8px;
+margin-right: 5px;
+background: #E0E0E0;
+}
+
+.anylinkmenucols3 .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+
+
+/* ######### class for shadow DIV ######### */
+
+/* ######### Alternate multi-column class for drop down menus ######### */
+
+
+.anylinkmenucols5{
+position: absolute;
+width: 720px;
+left: 0;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+padding: 10px;
+font: normal 12px tahoma;
+text-align: right;
+direction:rtl;
+z-index: 100; /*zIndex should be greater than that of shadow's below*/
+background: #E9E9E9;
+}
+
+
+
+.anylinkmenucols5 li{
+padding-bottom: 3px;
+}
+
+.anylinkmenucols5 .column{
+float: left;
+padding: 3px 8px;
+margin-right: 5px;
+background: #E0E0E0;
+}
+
+.anylinkmenucols5 .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+
+.anylinkmenucols6{
+position: absolute;
+width: 700px;
+left: 0;
+top: 0;
+visibility: hidden;
+border: 1px solid black;
+padding: 10px;
+font: normal 12px tahoma;
+text-align: right;
+direction:rtl;
+z-index: 100; /*zIndex should be greater than that of shadow's below*/
+background: #E9E9E9;
+}
+
+
+
+.anylinkmenucols6 li{
+padding-bottom: 3px;
+}
+
+.anylinkmenucols6 .column{
+float: left;
+padding: 3px 8px;
+margin-right: 5px;
+background: #E0E0E0;
+}
+
+.anylinkmenucols6 .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+/* ######### class for shadow DIV ######### */
+
+.anylinkshadow{ /*CSS for shadow. Keep this as is */
+position: absolute;
+left: 0;
+top: 0;
+z-index: 99; /*zIndex for shadow*/
+background: black;
+visibility: hidden;
+}
