@@ -23,6 +23,23 @@
 </b:if>
 <meta content='ALL' name='ROBOTS'/>
 <!-- العنوان في قوقل -->
+<!-- سكربت التطبيقات -->
+     <script src="assets/jquery.js" type="text/javascript"></script>
+    <script src="assets/jquery.css_dock_menu.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(function(){
+        $("#dock").Fisheye({
+          maxWidth: 50,
+          items: "a",
+          itemsText: "span",
+          container: ".dock-container",
+          itemWidth: 40,
+          proximity: 90,
+          halign : "center",
+        });
+      });
+       </script>
+<!-- سكربت التطبيقات -->
 </head>
 <body>
 	<main class="cd-main-content">
@@ -61,28 +78,6 @@
 	</h2></FONT>
 </section> 
 <!-- تسبيح -->
-<!-- سكربت التطبيقات -->
-    <script src="assets/jquery.js" type="text/javascript"></script>
-    <script src="assets/jquery.css_dock_menu.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      $(document).ready(
-		function()
-		{
-			$('#dock').Fisheye(
-				{
-					maxWidth: 40,
-					items: 'a',
-					itemsText: 'span',
-					container: '.dock-container',
-					itemWidth: 35,
-					proximity: 90,
-					halign : 'center'
-				}
-			)
-		}
-	);
-    </script>
-<!-- سكربت التطبيقات -->
 <!--بداية عداد الزوار -->
 <script type="text/javascript">
 var sc_project=10160084; 
