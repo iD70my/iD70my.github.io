@@ -382,23 +382,6 @@ img {
 -------------------------------- */
 
 
-.cd-editable-content {
-  /* used to wrap the image and the navigation */
-  position: relative;
-  width: 90%;
-  max-width: 400px;
-  margin: 4em auto;
-}
-.cd-editable-content img {
-  display: block;
-  border-radius: .25em;
-}
-
-.cd-stretchy-nav.edit-content {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
 
 /* -------------------------------- 
 اشعار ٢
