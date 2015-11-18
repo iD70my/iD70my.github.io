@@ -318,60 +318,7 @@ Modal Window
 /* -------------------------------- 
 اشعار ١
 -------------------------------- */
-.cd-stretchy-nav {
-  position: fixed;
-  z-index: 2;
-  top: 40px;
-  right: 5%;
-}
-.cd-stretchy-nav .stretchy-nav-bg {
-  /* this is the stretching navigation background */
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  background: #9acd91;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  -webkit-transition: height 0.2s, box-shadow 0.2s;
-  -moz-transition: height 0.2s, box-shadow 0.2s;
-  transition: height 0.2s, box-shadow 0.2s;
-}
-.cd-stretchy-nav.nav-is-visible .stretchy-nav-bg {
-  height: 100%;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
-}
 
-/* -------------------------------- 
-
-Primary style
-
--------------------------------- */
-*, *::after, *::before {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  font-family: "Source Sans Pro", sans-serif;
-  color: #003c5d;
-  background-color: #ffffff;
-}
-
-a {
-  color: #9acd91;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-}
 
 
 /* -------------------------------- 
