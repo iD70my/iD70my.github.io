@@ -1,6 +1,29 @@
+/* -------------------------------- 
+Primary style
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #040404;
+  background-color: #ffffff;
+}
+
+a {
+  color: #CCCCCC;
+  text-decoration: none;
+}
+
 
 /* -------------------------------- 
-تجربة
+تسبيح
 -------------------------------- */
 .cd-headline.rotate-1 .cd-words-wrapper {
   display: inline-block;
