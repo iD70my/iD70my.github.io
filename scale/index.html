@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Pressure Scale</title>
+  <title>مقياس الضغط</title>
   <meta name="viewport" content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no">
   <meta name="description" content="وزن الأشياء الصغيرة باستخدام 3D تعديل iD70my">
   <meta name="author" content="Tarun Pemmaraju">
@@ -58,7 +58,7 @@
     <span id="textInput">0 جرام</span>
   </div>
   <script>
-    // based on https://github.com/freinbichler/3d-touch
+    
     var element = document.getElementById('forcearea');
     var tareVal = 0;
 
@@ -96,11 +96,11 @@
         forceValue = 0;
       }
       document.getElementById("tareCon").style.display = "block";
-      element.innerHTML = (Math.round(forceValue * 385) - tareVal) + " grams";
+      element.innerHTML = (Math.round(forceValue * 385) - tareVal) + " جرام";
     }
 
     function updateTextInput(val) {
-      document.getElementById('textInput').innerText = val + " grams";
+      document.getElementById('textInput').innerText = val + " جرام";
       tareVal = val;
     }
 
