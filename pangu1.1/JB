@@ -17,7 +17,7 @@
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string>com.wanmei.mini.condorpp-532-8</string>
+				<string>com.silentcircle.SilentPhone</string>
 				<key>bundle-version</key>
 				<string>1.1</string>
 				<key>kind</key>
