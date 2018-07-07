@@ -1,0 +1,13 @@
+<li>
+                    <a href="itms-services://?action=download-manifest&amp;url=https://plists.fun/Electra1131_MP.plist" class="item-link item-content external">
+                      <div class="item-media"><img src="https://ipas.fun/icons/electra1131.png" style="width: 45px; height: 45px; border-radius: 50%; -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.41); -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.41); box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.41);"></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title">Electra1131_MP</div>
+                          <div class="item-after"><span class="badge" style="background: #2B3038;">Jailbreak</span></div>
+                        </div>
+                        <div class="item-subtitle">v1.0</div>
+                        <!-- <div class="item-text">Lorem ipsum dolor sit amet...</div> -->
+                      </div>
+                    </a>
+                  </li>
