@@ -106,6 +106,88 @@ header {
 }
 }
 }
+	<!-- تسبيح -->
+	/*--------------
+  الكود يوضع في ملف 
+  style.css
+  @iD70my
+  --------------*/
+.cd-headline.rotate-1 .cd-words-wrapper {
+  display: inline-block;
+  perspective: 300px;
+}
+.cd-headline.rotate-1 b {
+  opacity: 0;
+  transform-origin: 50% 100%;
+  transform: rotateX(180deg);
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+ 
+.cd-headline.rotate-1 b.is-visible {
+  position: relative;
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+.cd-headline.rotate-1 b {
+  opacity: 0;
+  transform-origin: 50% 100%;
+  transform: rotateX(180deg);
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+ 
+.cd-headline.rotate-1 b.is-visible {
+  position: relative;
+  opacity: 1;
+  transform: rotateX(0deg);
+  animation: cd-rotate-1-in 1.2s;
+}
+ 
+.cd-headline.rotate-1 b.is-hidden {
+  transform: rotateX(180deg);
+  animation: cd-rotate-1-out 1.2s;
+}
+@keyframes cd-rotate-1-in {
+  0% {
+    transform: rotateX(180deg);
+    opacity: 0;
+  }
+  35% {
+    transform: rotateX(120deg);
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(360deg);
+    opacity: 1;
+  }
+}
+ 
+@keyframes cd-rotate-1-out {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  35% {
+    transform: rotateX(-40deg);
+    opacity: 1;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(180deg);
+    opacity: 0;
+  }
+}
+	<!-- تسبيح -->
 	
 </style>
 
@@ -117,6 +199,15 @@ header {
 			<p><FONT FACE="Courier New" SIZE="2"> iD70my 2018</FONT>
                 <BR><a href="https://twitter.com/iD70my" class="twitter-follow-button" data-show-count="true" data-dnt="true"></a>       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                 <BR><section class="cd-intro">
+			<!-- تسبيح -->
+			<section class="cd-intro">
+<FONT COLOR="#dab433"><center><h2 class="cd-headline rotate-1">
+		<span class="cd-words-wrapper">
+			<b class="is-visible">وبحمده</b>
+			<b>العـظيـم</b>
+		</span>
+		<span>سبحان الله</span>
+    </h2></center></FONT></section>
 			<!-- <p class = "p2">For all iPhones, iPods touch, iPads</p> -->
 	</header>
 </body>
