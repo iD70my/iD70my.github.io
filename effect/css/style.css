@@ -7,6 +7,21 @@ Primary style
   box-sizing: border-box;
 }
 
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #aebcb9;
+  background-color: #0d0d0d;
+}
 
 a {
   text-decoration: none;
