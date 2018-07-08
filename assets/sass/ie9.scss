@@ -4,70 +4,53 @@
 @import 'libs/skel';
 
 /*
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
+	Identity by HTML5 UP
+	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Spotlight */
+/* Basic */
 
-	.spotlight {
+	body {
+		background-image:		url('../../images/bg.jpg');
+		background-repeat:		no-repeat;
+		background-size:		cover;
+		background-position:	bottom center;
+		background-attachment:	fixed;
+
 		&:after {
-			content: '';
-			display: block;
-			clear: both;
-		}
-
-		.content {
-			float: left;
-			width: 60%;
-		}
-
-		.image {
-			float: left;
+			display: none;
 		}
 	}
 
-/* Features */
+/* List */
 
-	.features {
-		&:after {
-			content: '';
-			display: block;
-			clear: both;
-		}
+	ul {
+		&.icons {
+			li {
+				a {
+					&:before {
+						color: _palette(border);
+					}
 
-		li {
-			float: left;
+					&:hover {
+						&:before {
+							color: _palette(highlight);
+						}
+					}
+				}
+			}
 		}
 	}
 
-/* Statistics */
+/* Wrapper */
 
-	.statistics {
+	#wrapper {
+		text-align: center;
+	}
+
+/* Main */
+
+	#main {
 		display: inline-block;
-		width: auto;
-
-		&:after {
-			content: '';
-			display: block;
-			clear: both;
-		}
-
-		li {
-			float: left;
-			padding: 1.5em 2.5em;
-		}
-	}
-
-/* Footer */
-
-	#footer {
-		> * {
-			float: left;
-		}
-
-		.copyright {
-			clear: both;
-		}
 	}
