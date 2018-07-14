@@ -1,154 +1,140 @@
 jQuery(document).ready(function($){
-	//set animation timing
-	var animationDelay = 2500,
-		//loading bar effect
-		barAnimationDelay = 3800,
-		barWaiting = barAnimationDelay - 3000, //3000 is the duration of the transition on the loading bar - set in the scss/css file
-		//letters effect
-		lettersDelay = 50,
-		//type effect
-		typeLettersDelay = 150,
-		selectionDuration = 500,
-		typeAnimationDelay = selectionDuration + 800,
-		//clip effect 
-		revealDuration = 600,
-		revealAnimationDelay = 1500;
-	
-	initHeadline();
-	
+	//set some variables
+	var isAnimating = false,
+		firstLoad = false,
+		newScaleValue = 1;
 
-	function initHeadline() {
-		//insert <i> element for each letter of a changing word
-		singleLetters($('.cd-headline.letters').find('b'));
-		//initialise headline animation
-		animateHeadline($('.cd-headline'));
+	//cache DOM elements
+	var dashboard = $('.cd-side-navigation'),
+		mainContent = $('.cd-main'),
+		loadingBar = $('#cd-loading-bar');
+
+	//select a new section
+	dashboard.on('click', 'a', function(event){
+		event.preventDefault();
+		var target = $(this),
+			//detect which section user has chosen
+			sectionTarget = target.data('menu');
+		if( !target.hasClass('selected') && !isAnimating ) {
+			//if user has selected a section different from the one alredy visible - load the new content
+			triggerAnimation(sectionTarget, true);
+		}
+
+		firstLoad = true;
+	});
+
+	//detect the 'popstate' event - e.g. user clicking the back button
+  	$(window).on('popstate', function() {
+	  	if( firstLoad ) {
+		    /*
+		    Safari emits a popstate event on page load - check if firstLoad is true before animating
+		    if it's false - the page has just been loaded 
+		    */
+	      	var newPageArray = location.pathname.split('/'),
+	        //this is the url of the page to be loaded 
+	        newPage = newPageArray[newPageArray.length - 1].replace('.html', '');
+	      	if( !isAnimating ) triggerAnimation(newPage, false);
+	    }
+	    firstLoad = true;
+	});
+
+  	//scroll to content if user clicks the .cd-scroll icon
+	mainContent.on('click', '.cd-scroll', function(event){
+		event.preventDefault();
+		var scrollId = $(this.hash);
+		$(scrollId).velocity('scroll', { container: $(".cd-section") }, 200);
+	});
+
+	//start animation
+	function triggerAnimation(newSection, bool) {
+		isAnimating =  true;
+		newSection = ( newSection == '' ) ? 'index' : newSection;
+		
+		//update dashboard
+		dashboard.find('*[data-menu="'+newSection+'"]').addClass('selected').parent('li').siblings('li').children('.selected').removeClass('selected');
+		//trigger loading bar animation
+		initializeLoadingBar(newSection);
+		//load new content
+		loadNewContent(newSection, bool);
 	}
 
-	function singleLetters($words) {
-		$words.each(function(){
-			var word = $(this),
-				letters = word.text().split(''),
-				selected = word.hasClass('is-visible');
-			for (i in letters) {
-				if(word.parents('.rotate-2').length > 0) letters[i] = '<em>' + letters[i] + '</em>';
-				letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
-			}
-		    var newLetters = letters.join('');
-		    word.html(newLetters).css('opacity', 1);
-		});
+	function initializeLoadingBar(section) {
+		var	selectedItem =  dashboard.find('.selected'),
+			barHeight = selectedItem.outerHeight(),
+			barTop = selectedItem.offset().top,
+			windowHeight = $(window).height(),
+			maxOffset = ( barTop + barHeight/2 > windowHeight/2 ) ? barTop : windowHeight- barTop - barHeight,
+			scaleValue = ((2*maxOffset+barHeight)/barHeight).toFixed(3)/1 + 0.001;
+		
+		//place the loading bar next to the selected dashboard element
+		loadingBar.data('scale', scaleValue).css({
+		    height: barHeight,
+		    top: barTop
+		}).attr('class', '').addClass('loading '+section);
 	}
 
-	function animateHeadline($headlines) {
-		var duration = animationDelay;
-		$headlines.each(function(){
-			var headline = $(this);
+	function loadNewContent(newSection, bool) {
+		setTimeout(function(){
+			//animate loading bar
+			loadingBarAnimation();
 			
-			if(headline.hasClass('loading-bar')) {
-				duration = barAnimationDelay;
-				setTimeout(function(){ headline.find('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
-			} else if (headline.hasClass('clip')){
-				var spanWrapper = headline.find('.cd-words-wrapper'),
-					newWidth = spanWrapper.width() + 10
-				spanWrapper.css('width', newWidth);
-			} else if (!headline.hasClass('type') ) {
-				//assign to .cd-words-wrapper the width of its longest word
-				var words = headline.find('.cd-words-wrapper b'),
-					width = 0;
-				words.each(function(){
-					var wordWidth = $(this).width();
-				    if (wordWidth > width) width = wordWidth;
+			//create a new section element and insert it into the DOM
+			var section = $('<section class="cd-section overflow-hidden '+newSection+'"></section>').appendTo(mainContent);
+			//load the new content from the proper html file
+			section.load(newSection+'.html .cd-section > *', function(event){
+				//finish up the animation and then make the new section visible
+				var scaleMax = loadingBar.data('scale');
+				
+				loadingBar.velocity('stop').velocity({
+					scaleY: scaleMax
+				}, 400, function(){
+					//add the .visible class to the new section element -> it will cover the old one
+					section.prev('.visible').removeClass('visible').end().addClass('visible').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+						resetAfterAnimation(section);
+					});
+
+					//if browser doesn't support transition
+					if( $('.no-csstransitions').length > 0 ) {
+						resetAfterAnimation(section);
+					}
+
+					var url = newSection+'.html';
+
+					if(url!=window.location && bool){
+				        //add the new page to the window.history
+				        //if the new page was triggered by a 'popstate' event, don't add it
+				        window.history.pushState({path: url},'',url);
+				    }
 				});
-				headline.find('.cd-words-wrapper').css('width', width);
-			};
-
-			//trigger animation
-			setTimeout(function(){ hideWord( headline.find('.is-visible').eq(0) ) }, duration);
-		});
-	}
-
-	function hideWord($word) {
-		var nextWord = takeNext($word);
-		
-		if($word.parents('.cd-headline').hasClass('type')) {
-			var parentSpan = $word.parent('.cd-words-wrapper');
-			parentSpan.addClass('selected').removeClass('waiting');	
-			setTimeout(function(){ 
-				parentSpan.removeClass('selected'); 
-				$word.removeClass('is-visible').addClass('is-hidden').children('i').removeClass('in').addClass('out');
-			}, selectionDuration);
-			setTimeout(function(){ showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
-		
-		} else if($word.parents('.cd-headline').hasClass('letters')) {
-			var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
-			hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
-			showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
-
-		}  else if($word.parents('.cd-headline').hasClass('clip')) {
-			$word.parents('.cd-words-wrapper').animate({ width : '2px' }, revealDuration, function(){
-				switchWord($word, nextWord);
-				showWord(nextWord);
 			});
 
-		} else if ($word.parents('.cd-headline').hasClass('loading-bar')){
-			$word.parents('.cd-words-wrapper').removeClass('is-loading');
-			switchWord($word, nextWord);
-			setTimeout(function(){ hideWord(nextWord) }, barAnimationDelay);
-			setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
-
-		} else {
-			switchWord($word, nextWord);
-			setTimeout(function(){ hideWord(nextWord) }, animationDelay);
-		}
+		}, 50);
 	}
 
-	function showWord($word, $duration) {
-		if($word.parents('.cd-headline').hasClass('type')) {
-			showLetter($word.find('i').eq(0), $word, false, $duration);
-			$word.addClass('is-visible').removeClass('is-hidden');
-
-		}  else if($word.parents('.cd-headline').hasClass('clip')) {
-			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){ 
-				setTimeout(function(){ hideWord($word) }, revealAnimationDelay); 
-			});
+	function loadingBarAnimation() {
+		var scaleMax = loadingBar.data('scale');
+		if( newScaleValue + 1 < scaleMax) {
+			newScaleValue = newScaleValue + 1;
+		} else if ( newScaleValue + 0.5 < scaleMax ) {
+			newScaleValue = newScaleValue + 0.5;
 		}
-	}
-
-	function hideLetter($letter, $word, $bool, $duration) {
-		$letter.removeClass('in').addClass('out');
 		
-		if(!$letter.is(':last-child')) {
-		 	setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);  
-		} else if($bool) { 
-		 	setTimeout(function(){ hideWord(takeNext($word)) }, animationDelay);
-		}
-
-		if($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
-			var nextWord = takeNext($word);
-			switchWord($word, nextWord);
-		} 
+		loadingBar.velocity({
+			scaleY: newScaleValue
+		}, 100, loadingBarAnimation);
 	}
 
-	function showLetter($letter, $word, $bool, $duration) {
-		$letter.addClass('in').removeClass('out');
-		
-		if(!$letter.is(':last-child')) { 
-			setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration); 
-		} else { 
-			if($word.parents('.cd-headline').hasClass('type')) { setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('waiting'); }, 200);}
-			if(!$bool) { setTimeout(function(){ hideWord($word) }, animationDelay) }
-		}
+	function resetAfterAnimation(newSection) {
+		//once the new section animation is over, remove the old section and make the new one scrollable
+		newSection.removeClass('overflow-hidden').prev('.cd-section').remove();
+		isAnimating =  false;
+		//reset your loading bar
+		resetLoadingBar();
 	}
 
-	function takeNext($word) {
-		return (!$word.is(':last-child')) ? $word.next() : $word.parent().children().eq(0);
-	}
-
-	function takePrev($word) {
-		return (!$word.is(':first-child')) ? $word.prev() : $word.parent().children().last();
-	}
-
-	function switchWord($oldWord, $newWord) {
-		$oldWord.removeClass('is-visible').addClass('is-hidden');
-		$newWord.removeClass('is-hidden').addClass('is-visible');
+	function resetLoadingBar() {
+		loadingBar.removeClass('loading').velocity({
+			scaleY: 1
+		}, 1);
 	}
 });
