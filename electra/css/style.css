@@ -151,7 +151,7 @@ Navigation
 }
 .cd-side-navigation li:nth-of-type(3) .selected > svg *,
 .cd-side-navigation li:nth-of-type(3) .selected:hover > svg * {
-  stroke: #009688;
+  stroke: #25d366;
 }
 .cd-side-navigation li:nth-of-type(4) .selected > svg *,
 .cd-side-navigation li:nth-of-type(4) .selected:hover > svg * {
@@ -161,7 +161,7 @@ Navigation
   background-color: #4e6270;
 }
 .cd-side-navigation li:nth-of-type(3) a::after {
-  background-color: #009688;
+  background-color: #25d366;
 }
 .cd-side-navigation li:nth-of-type(4) a::after {
   background-color: #a26c4d;
@@ -230,7 +230,7 @@ Navigation
   background-color: #4e6270;
 }
 .cd-section.projects header {
-  background-color: #009688;
+  background-color: #25d366;
 }
 .cd-section.contact header {
   background-color: #a26c4d;
@@ -445,7 +445,7 @@ Navigation
   background-color: #4e6270;
 }
 #cd-loading-bar.projects {
-  background-color: #009688;
+  background-color: #25d366;
 }
 #cd-loading-bar.contact {
   background-color: #a26c4d;
