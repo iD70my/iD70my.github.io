@@ -229,10 +229,10 @@ Navigation
 .cd-section.jailbreak header {
   background-color: #4e6270;
 }
-.cd-section.projects header {
+.cd-section.whatsapp header {
   background-color: #25d366;
 }
-.cd-section.contact header {
+.cd-section.addSource header {
   background-color: #a26c4d;
 }
 .cd-section .cd-scroll {
@@ -444,10 +444,10 @@ Navigation
 #cd-loading-bar.jailbreak {
   background-color: #4e6270;
 }
-#cd-loading-bar.projects {
+#cd-loading-bar.whatsapp {
   background-color: #25d366;
 }
-#cd-loading-bar.contact {
+#cd-loading-bar.addSource {
   background-color: #a26c4d;
 }
 #cd-loading-bar.loading {
