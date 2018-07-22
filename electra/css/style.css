@@ -226,7 +226,7 @@ Navigation
   background: #b1cbc2;
   overflow: hidden;
 }
-.cd-section.services header {
+.cd-section.jailbreak header {
   background-color: #4e6270;
 }
 .cd-section.projects header {
@@ -441,7 +441,7 @@ Navigation
 #cd-loading-bar.index {
   background-color: #b1cbc2;
 }
-#cd-loading-bar.services {
+#cd-loading-bar.jailbreak {
   background-color: #4e6270;
 }
 #cd-loading-bar.projects {
