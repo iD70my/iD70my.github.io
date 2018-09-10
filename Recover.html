@@ -160,9 +160,9 @@ function main_func()
       display_message("Passcode: <b>"+pass+"</b> with salt <b>"+salt+"</b> creates base64 key: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
     //alert("pass:"+pass+"  end:"+end+"   key:"+key+"   code:"+code+"   stopnow:"+stopnow);
       if (code.toString()==key) { 
-        display_message("<B>FOUND!! Passcode: "+pass+"</b> with salt <b>"+salt+"</b> creates base64 key: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
+        display_message("<B>مبروك وجدنا الرقم هو: "+pass+"</b> with salt <b>"+salt+"</b> creates base64 key: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
         document.getElementById("status").style.backgroundColor="yellow";
-        alert("The passcode is: " + pass);
+        alert("الرقم السري هو: " + pass);
       } else if (pass.toString()==end.toString() || stopnow==1) {
         display_message("Stopping... Passcode: <b>"+pass+"</b> with salt <b>"+salt+"</b> creates base64 key: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
       } else {  //try again
