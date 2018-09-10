@@ -16,7 +16,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Tajawal", sans-serif;
-  color: #1f4c74;
+  color: #80b8cb;
   background-color: #f2f2f2;
 }
 
@@ -107,7 +107,7 @@ Modal Window
   left: 0;
 }
 .cd-modal svg > path {
-  fill: #1f4c74;
+  fill: #80b8cb;
 }
 .cd-modal .modal-close {
   /* 'X' icon */
