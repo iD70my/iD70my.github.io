@@ -137,18 +137,18 @@ function main_func()
 	 	 document.getElementById("salt_status").innerHTML = "";
 	 	 if (isNaN(i) || i<0 || i>9999) 
 	 	 {
-	 	   document.getElementById("passcode_status").innerHTML = "invalid";
+	 	   document.getElementById("passcode_status").innerHTML = "غير صالح";
 	 	   valid=0;
 	 	 }
 	 	 if (!document.pbkdf2form.salt.value) {
-	 	   document.getElementById("salt_status").innerHTML = "invalid";
+	 	   document.getElementById("salt_status").innerHTML = "غير صالح";
 	 	   valid=0;
 	 	 }
 	 	 if (valid==0)
 	 	 {
 	 	 	 document.getElementById("status").style.backgroundColor="yellow";
 	 	 	 display_message("You can use this however you like, but there should be a valid Salt<br>and the Starting Passcode should be between 0000 and 9999");
-	 	 	 alert("I understand and will click Stop if needed!");
+	 	 	 alert("سوف أضغط على إيقاف إذا لزم الأمر!");
 	 	 }
 	 }
 
