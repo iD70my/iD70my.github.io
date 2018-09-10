@@ -108,7 +108,7 @@ function main_func()
       display_message("<b>"+code.toString(CryptoJS.enc.Base64)+"</B> :والكود <b>"+pass+"</b> :رمز القيود "); 
     //alert("pass:"+pass+"  end:"+end+"   key:"+key+"   code:"+code+"   stopnow:"+stopnow);
       if (code.toString()==key) { 
-        display_message("<b>"+pass+" :مبروك وجدنا الرقم هو</b>"); 
+        display_message("<b>مبروك وجدنا الرقم هو: "+pass+"</b>"); 
         document.getElementById("status").style.backgroundColor="yellow";
         alert("الرقم السري هو: " + pass);
       } else if (pass.toString()==end.toString() || stopnow==1) {
