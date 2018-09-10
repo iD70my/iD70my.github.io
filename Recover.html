@@ -157,7 +157,7 @@ function main_func()
    this.try_code = function()
    {
       var code = CryptoJS.PBKDF2(pass, CryptoJS.enc.Base64.parse(salt), {keySize: 5, iterations: 1000});
-      display_message("رمز القيود: <b>"+pass+"</b> مع الشفرة <b>"+salt+"</b> والكود: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
+      display_message("<b>"+pass+"</b> :رمز القيود <b>"+salt+"</b> :مع الشفرة <b>"+code.toString(CryptoJS.enc.Base64)+"</B> :والكود"); 
     //alert("pass:"+pass+"  end:"+end+"   key:"+key+"   code:"+code+"   stopnow:"+stopnow);
       if (code.toString()==key) { 
         display_message("<B>مبروك وجدنا الرقم هو: "+pass+"</b> مع الشفرة <b>"+salt+"</b> والكود: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
