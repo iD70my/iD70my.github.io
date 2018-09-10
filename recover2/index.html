@@ -98,14 +98,14 @@ function main_func()
 	 	 {
 	 	 	 document.getElementById("status").style.backgroundColor="yellow";
 	 	 	 display_message("You can use this however you like, but there should be a valid Salt<br>and the Starting Passcode should be between 0000 and 9999");
-	 	 	 alert("!سوف أضغط على إيقاف إذا لزم الأمر");
+	 	 	 alert("سوف أضغط على إيقاف إذا لزم الأمر!");
 	 	 }
 	 }
    function display_message(msg) { document.getElementById("status").innerHTML = msg; }
    this.try_code = function()
    {
       var code = CryptoJS.PBKDF2(pass, CryptoJS.enc.Base64.parse(salt), {keySize: 5, iterations: 1000});
-      display_message("<b>"+code.toString(CryptoJS.enc.Base64)+"</B> :جاري البحث "); 
+      display_message("<b>جاري البحث: "+code.toString(CryptoJS.enc.Base64)+"</B>"); 
     //alert("pass:"+pass+"  end:"+end+"   key:"+key+"   code:"+code+"   stopnow:"+stopnow);
       if (code.toString()==key) { 
         display_message("<b>مبروك وجدنا الرقم هو: "+pass+"</b>"); 
