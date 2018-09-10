@@ -25,416 +25,192 @@ body {
 		size: 1.6rem;
 		family: $primary-font; // variables inside partials > _variables.scss
 	}
-	color: $color-2;
-	background-color: $color-1;
-	@include font-smoothing;
+	color: $color-1;
+	background-color: $color-3;
 }
 
 a {
-	color: $color-4;
+	color: $color-2;
 	text-decoration: none;
 }
 
-.cd-image-replace {
-	/* replace text with image */
+svg {
+	max-width: 100%;
+}
+
+/* -------------------------------- 
+
+Patterns - reusable parts of our design
+
+-------------------------------- */
+
+.cd-btn {
 	display: inline-block;
-	overflow: hidden;
-	text-indent: 100%;
-	white-space: nowrap;
-	color: transparent;
-}
+	padding: 1em 2em;
+	color: $color-2;
+	border: 2px solid $color-2;
+	font-weight: 700;
+	@include font-smoothing;
 
-/* -------------------------------- 
-
-Navigation trigger - visible on small devices only
-
--------------------------------- */
-
-.cd-nav-trigger {
-	display: block;
-	position: fixed;
-	z-index: 2;
-	bottom: 30px;
-	right: 5%;
-	height: 44px;
-	width: 44px;
-	@include border-radius;
-	background: rgba($color-2, .9);
-
-	/* reset button style */
-	cursor: pointer;
-	@include appearance(none);
-	border: none;
-	outline: none;
-
-	span {
-		/* central dot */
-		position: absolute;
-		height: 4px;
-		width: 4px;
-		background-color: $color-1;
-		border-radius: 50%;
-		@include center;
-
-		&::before, &::after {
-			/* bottom and top dots */
-			content: '';
-			position: absolute;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			background-color: $color-1;
-			border-radius: inherit;
-		}
-
-		&::before {
-			top: -9px;
-		}
-
-		&::after {
-			bottom: -9px;
-		}
-	}
-
-	@include MQ(M) {
-		display: none;
+	.no-touch &:hover {
+		background-color: $color-2;
+		color: $color-3;
 	}
 }
 
 /* -------------------------------- 
 
-Vertical navigation
+Main Content
 
 -------------------------------- */
 
-.cd-vertical-nav {
-	position: fixed;
-	z-index: 1;
-	right: 5%;
-	bottom: 30px;
-	width: 90%;
-	max-width: 400px;
-	max-height: 90%;
-	overflow-y: auto;
-	@include transform(scale(0));
-	@include transform-origin(right bottom);
-	@include transition(transform .2s);
-	@include border-radius;
-	background-color: rgba($color-2, .9);
-
-	a {
-		display: block;
-		padding: 1em;
-		color: $color-1;
-		font-weight: bold;
-		border-bottom: 1px solid rgba($color-1, .1);
-
-		&.active {
-			color: $color-4;
-		}
-	}
-	
-	&.open {
-		@include transform(scale(1));
-		-webkit-overflow-scrolling: touch;
-	}
-
-	&.open + .cd-nav-trigger {
-		background-color: transparent;
-		
-		span {
-			background-color: rgba($color-1, 0);	
-		}
-
-		span::before, span::after {
-			/* transform dots in 'X' icon */
-			height: 3px;
-			width: 20px;
-			border-radius: 0;
-			left: -8px;
-		}
-
-		span::before {
-			@include transform(rotate(45deg));
-			top: 1px;
-		}
-
-		span::after {
-			@include transform(rotate(135deg));
-			bottom: 0;
-		}
-	}
-
-	@include MQ(M) {
-		/* reset style */
-		right: 0;
-		top: 0;
-		bottom: auto;
-		height: 100vh;
-		width: 90px;
-		max-width: none;
-		max-height: none;
-		@include transform(scale(1));
-		background-color: transparent;
-		/* vertically align its content*/
-		display: table;
-
-		&::before {
-			/* this is the navigation background */
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: rgba($color-3, .8);
-			@include transform(translateX(100%));
-			@include transition(transform .4s);
-		}
-
-		.no-touch &:hover::before, 
-		.touch &::before {
-			@include transform(translateX(0));
-		}
-
-		ul {
-			/* vertically align <ul> inside <nav>*/
-			display: table-cell;
-			vertical-align: middle;
-			text-align: center;
-		}
-
-		a {
-			position: relative;
-			padding: 3em 0 0;
-			margin: 1.4em auto;
-			border-bottom: none;
-			font-size: 1.2rem;
-			color: $color-2;
-
-			&.active {
-				color: $color-2;
-			}
-
-			&::before, &::after {
-				/* used to create the filled circle and the background icon */
-				content: '';
-				position: absolute;
-				left: 50%;
-				/* Force Hardware Acceleration */
-				@include backface-visibility(hidden);
-				@include transform(translateZ(0));
-			}
-
-			&::before {
-				/* filled circle */
-				top: 0;
-				height: 32px;
-				width: 32px;
-				border-radius: 50%;
-				background: $color-2;
-				@include transform(translateX(-50%) scale(.25));
-				@include transition(transform .4s, background-color .2s);
-			}
-
-			&::after {
-				/* icon */
-				opacity: 0;
-				top: 8px;
-				height: 16px;
-				width: 16px;
-				background: url(../img/cd-nav-icons.svg) no-repeat;
-				@include transform(translateX(-50%) scale(0));
-				@include transition(transform .4s 0s, opacity .1s .3s);
-			}
-
-			&.active::before, 
-			.no-touch &:hover::before {
-				background-color: $color-4;
-			}
-		}
-
-		li:first-of-type a::after {
-			/* change icon using image sprites */
-			background-position: 0px -48px;
-			/* fix bug with transitions - set scale(0.01) rather than scale(0) */
-			@include transform(translateX(-50%) translateY(4.5em) scale(0.01));
-		}
-
-		li:first-of-type a::before {
-			@include transform(translateX(-50%) translateY(4.5em) scale(.25));
-		}
-
-		li:nth-of-type(2) a::after {
-			background-position: 0px -32px;
-			@include transform(translateX(-50%) translateY(1.5em) scale(0.01));
-		}
-
-		li:nth-of-type(2) a::before {
-			@include transform(translateX(-50%) translateY(1.5em) scale(.25));
-		}
-
-		li:nth-of-type(3) a::after {
-			background-position: 0px -16px;
-			@include transform(translateX(-50%) translateY(-1.5em) scale(0.01));
-		}
-
-		li:nth-of-type(3) a::before {
-			@include transform(translateX(-50%) translateY(-1.5em) scale(.25));
-		}
-
-		li:nth-of-type(4) a::after {
-			background-position: 0px 0px;
-			@include transform(translateX(-50%) translateY(-4.5em) scale(0.01));
-		}
-
-		li:nth-of-type(4) a::before {
-			@include transform(translateX(-50%) translateY(-4.5em) scale(.25));
-		}
-
-		.label {
-			display: block;
-			/* Force Hardware Acceleration */
-			@include backface-visibility(hidden);
-			@include transform(translateZ(0));
-			@include transform(translateX(100%));
-			@include transition(transform .4s);
-		}
-
-		.no-touch &:hover a::before,
-		.no-touch &:hover a::after,
-		.touch & li:nth-of-type(n) a::before,
-		.touch & li:nth-of-type(n) a::after {
-			@include transform(translateX(-50%) scale(1));
-			/* set a rotation to fix bug on Firefox - http://gielberkers.com/how-to-fix-shaking-css-transitions-in-firefox/ */
-			-moz-transform: translateX(-50%) scale(1) rotate(0.02deg);
-		}
-
-		.no-touch &:hover a::after, 
-		.touch & a::after {
-			opacity: 1;
-			@include transition(transform .4s, opacity 0s);
-		}
-
-		.no-touch &:hover .label,
-		.touch & .label {
-			@include transform(translateX(0));
-		}
-	}
-}
-
-/* -------------------------------- 
-
-Content Sections - basic style
-
--------------------------------- */
-
-.cd-section {
-	/* vertically align its content*/
-	display: table;
+.cd-main-content {
+	position: relative;
 	width: 100%;
 	height: 100vh;
-	background: $color-1;
+	display: table;
 
-	&:nth-of-type(even) {
-		background-color: lighten($color-1, 20%);
-	}
-
-	> div {
-		/* vertically align <div> inside <section> */
+	.center {
 		display: table-cell;
 		vertical-align: middle;
 		text-align: center;
 	}
 
-	h1, h2 {
-		width: 90%;
-		margin: 0 auto;
-		text-transform: uppercase;
-		font-size: 2.4rem;
-		line-height: 1.4;
-
-		b {
-			color: tint($color-1, 15%);
-		}
-	}
-
-	p {
-		margin: 1em auto 0;
-		line-height: 1.6;
-		width: 90%;
-		max-width: 680px;
-		color: rgba($color-2, .6);
+	h1 {
+		font-size: 2.2rem;
+		line-height: 1;
+		margin-bottom: 1em;
 	}
 
 	@include MQ(M) {
-		
-		h1, h2 {
-			font-size: 3rem;
-		}
-
-		p {
-			font-size: 2rem;
+		h1 {
+			font-size: 4rem;
+			font-weight: 300;
 		}
 	}
-}
-
-.cd-scroll-down {
-	position: absolute;
-	@include center(x);
-	bottom: 20px;
-	width: 44px;
-	height: 44px;
-	background: url(../img/cd-arrow-bottom.svg) no-repeat center center;
 }
 
 /* -------------------------------- 
 
-no-js
+Modal Window
 
 -------------------------------- */
 
-.no-js .cd-nav-trigger {
-	display: none;
-}
-
-.no-js .cd-vertical-nav {
-	position: static;
-	height: auto;
+.cd-modal {
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	height: 100%;
 	width: 100%;
-	max-width: none;
-	background-color: rgba($color-3, .8);
-	border-radius: 0;
-	@include transform(scale(1));
+	visibility: hidden;
+	@include transition(visibility 0s $animation-duration);
 
-	&::before {
-		display: none;
+	svg {
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 
-	ul {
-		@include clearfix;
+	svg > path {
+		fill: $color-1;
 	}
 
-	li {
-		display: inline-block;
-		float: left;
-	}
+	.modal-close {
+		/* 'X' icon */
+		position: absolute;
+		z-index: 1;
+		top: 20px;
+		right: 5%;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		background: rgba(#000, .3) url(../img/cd-icon-close.svg) no-repeat center center;
+		
+		/* image replacement */
+		overflow: hidden;
+		text-indent: 100%;
+		white-space: nowrap;
 
-	a {
-		padding: 0 1em;
-		margin: 1.5em 1em;
-		color: $color-2;
+		/* Force hardware acceleration*/
+		@include transform(translateZ(0));
+		@include backface-visibility(hidden);
+		
+		visibility: hidden;
+		opacity: 0;
+		@include transform(scale(0));
+		@include transition(transform .3s 0s, visibility 0s .3s, opacity .3s 0s);
 
-		&.active {
-			color: $color-4;
+		.no-touch &:hover {
+			background-color: rgba(#000, .5);
 		}
 	}
 
-	a::after, a::before {
-		display: none;
+	&.modal-is-visible {
+		visibility: visible;
+		@include transition(visibility 0s 0s);
+
+		.modal-close {
+			visibility: visible;
+			opacity: 1;
+			@include transition(transform .3s 0s, visibility 0s 0s, opacity .3s 0s);
+			@include transform(scale(1));
+		}
+	}
+}
+
+.cd-modal-content {
+	position: relative;
+	height: 100vh;
+	overflow-y: auto;
+	padding: 3em 5% 4em;
+	opacity: 0;
+	@include transform(translateY(50px));
+	@include transition(opacity $animation-duration/2 0s, transform $animation-duration/2 0s);
+	@include font-smoothing;
+	
+	p {
+		color: $color-3;
+		line-height: 1.6;
+		margin: 2em 0;
 	}
 
-	.label {
-		@include transform(translateX(0));
+	.modal-is-visible & {
+		opacity: 1;
+		@include transform(translateY(0));
+		-webkit-overflow-scrolling: touch;
+		@include transition(opacity $animation-duration/2 $animation-duration/2, transform $animation-duration/2 $animation-duration/2);
+	}
+
+	@include MQ(M) {
+		padding: 3em 10% 4em;
+
+		p {
+			font-size: 2.4rem;
+		}
+	}
+}
+
+/* -------------------------------- 
+
+ Cover Layer - hide main content when modal is fired
+
+-------------------------------- */
+.cd-cover-layer {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: $color-3;
+	visibility: hidden;
+	opacity: 0;
+	@include transition(opacity $animation-duration/2 $animation-duration/2, visibility 0s $animation-duration);
+
+	&.modal-is-visible {
+		opacity: 1;
+		visibility: visible;
+		@include transition(opacity $animation-duration/2 0s, visibility 0s 0s);
 	}
 }

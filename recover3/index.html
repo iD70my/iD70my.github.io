@@ -3,46 +3,57 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	
+	<link href='https://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
   	
 	<title>إستعادة رمز القيود</title>
-	<link href='/favicon.ico' rel='icon'/> 
-	<link href='/favicon.ico' rel='shortcut icon'/> 
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />  
-            <!-- العنوان في قوقل -->
-<meta content='دحوم ، سيديا ، سورس ، سورس دحوم ، سورس iD70my ، سورسات ،جلبريك ، تطبيق ، تطبيقات ، ايفون ، اي فون ، iD70my ، cydia ، jailbreak ،' name='keywords'/>
-<b:if cond='data:blog.url == data:blog.homepageUrl'>
-<meta content=' دحوم ،، يهتم بكل ما هو جديد في عالم السيديا والجلبريك تابعنا على تويتر iD70my@ ' name='description'/>
-</b:if>
-<meta content='ALL' name='ROBOTS'/>
-<!-- العنوان في قوقل -->
-<!-- صوت تجربة -->
-<!-- صوت تجربة -->
+	<style>
+body,div,p,a,td,input {font-family: Tajawal, sans-serif; font-size: 10pt;}
+h1 {font-size: 14pt; text-align: center;}
+h2 {font-size: 12pt; text-align: center;}
+h3 {font-size: 10pt; text-align: center;}
+#footer {font-size: 8pt; text-align: center; padding: 0 10 10 10}
+#salt_status {color: Red; font-size: 8pt; text-align: center}
+#passcode_status {color: Red; font-size: 8pt; text-align: center}
+#status {background-color: #C1C1FF; padding: 10 10 10 10;}
+</style>
+	
 </head>
 <body>
-	<main class="cd-main-content">
-		<section class="center">
-			<!-- كود الصفحة -->
+<nav class="cd-vertical-nav">
+	<ul>
+		<li><a href="#section1" class="active"><span class="label">الرئيسية</span></a></li>
+		<li><a href="#section2"><span class="label">عن المطور</span></a></li>
+		<li><a href="#section3"><span class="label">المساعدة</span></a></li>
+		<li><a href="#section4"><span class="label">مشاركة</span></a></li>
+	</ul>
+</nav><!-- .cd-vertical-nav -->
+
+<button class="cd-nav-trigger cd-image-replace">Open navigation<span aria-hidden="true"></span></button>
+
+<section id="section1" class="cd-section">
+	<div class="content-wrapper">
+		<!-- كود الصفحة -->
 		<h1>
 إستعادة رمز القيود بدون جلبريك
 </h1>
-<p>
+<h2>
+إتبع الطريقة أسفل الصفحة
+</h2>
 <center><form name="pbkdf2form">
 <table>
-<tr><th>كود Key :</th><td colspan=2><input id="key" type="text" size="33"></td></tr><tr></tr>
-<tr><th>كود Salt :</th><td><input id="salt" type="text" size="14"></td><td id="salt_status"></td></tr><tr></tr>
+<tr><td>كود Key :</td><td colspan=2><input id="key" type="text" size="33"></td></tr>
+<tr><td>كود Salt :</td><td><input id="salt" type="text" size="14"></td><td id="salt_status"></td></tr>
 <tr><td>بداية البحث :</td><td><input id="password" value="0000" type="text" size="14"></td><td>نهاية البحث عند:</td><td><input id="passend" value="9999" type="text" size="11"></td><td id="passcode_status"></td></tr>
-<tr><td></td><tr></tr>
-   <th><input type="button" value="بداية البحث" onclick="find_code()"></th><td></td>
-   <th><input type="button" value="نهاية البحث" onclick="stop_searching()"></th><td></td></tr>
-</table><tr></tr>
+<tr><td></td>
+   <td><input type="button" value="بداية البحث" onclick="find_code()"></td><td></td>
+   <td><input type="button" value="نهاية البحث" onclick="stop_searching()"></td><td></td></tr>
+</table>
 </form></center>
 <div id="status"></div>
 
@@ -105,14 +116,14 @@ function main_func()
    this.try_code = function()
    {
       var code = CryptoJS.PBKDF2(pass, CryptoJS.enc.Base64.parse(salt), {keySize: 5, iterations: 1000});
-      display_message("<b>جاري البحث: "+code.toString(CryptoJS.enc.Base64)+"</B>"); 
+      display_message("<b>"+salt+"</b> :مع الشفرة <b>"+code.toString(CryptoJS.enc.Base64)+"</B> :والكود <b>"+pass+"</b> :رمز القيود "); 
     //alert("pass:"+pass+"  end:"+end+"   key:"+key+"   code:"+code+"   stopnow:"+stopnow);
       if (code.toString()==key) { 
-        display_message("<b>مبروك وجدنا الرقم هو: "+pass+"</b>"); 
+        display_message("<B>مبروك وجدنا الرقم هو: "+pass+"</b> مع الشفرة <b>"+salt+"</b> والكود: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
         document.getElementById("status").style.backgroundColor="yellow";
         alert("الرقم السري هو: " + pass);
       } else if (pass.toString()==end.toString() || stopnow==1) {
-        display_message("إيقاف... البحث: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
+        display_message("إيقاف... رمز القيود: <b>"+pass+"</b> مع الشفرة <b>"+salt+"</b> والكود: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
       } else {  //try again
          i++;
          pass = ("0000" + i).slice(-4);
@@ -159,80 +170,32 @@ function stop_searching(){ myfunc.stop_code(); }
 function test_code(){ myfunc.tryone(); }
 </script>
 		<!-- السكربت -->
-		<h1></h1>
-			<a href="#0" class="cd-btn" id="modal-trigger" data-type="cd-modal-trigger">الطريقة</a>
-			<h1></h1>
-		<p class="icons"><a href="https://paypal.me/iM03th" title="دعم المطور"><i class="fa fa-paypal fa-3x"></i></a></p>
-                <BR><a href="https://twitter.com/iD70my" class="twitter-follow-button" data-show-count="true" data-dnt="true"></a>       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                <p><FONT FACE="Courier New" SIZE="2" COLOR="#dab433"> iD70my 2018©</FONT>
-		<BR><section class="cd-intro">
-                <!-- تسبيح -->
-		<FONT COLOR="#dab433"><h2 class="cd-headline rotate-1">
-			<span>سبحان الله</span>
-		<span class="cd-words-wrapper">
-			<b class="is-visible">وبحمده</b>
-			<b>العـظيـم</b>
-		</span>
-	</h2></FONT>
-</section> <!-- تسبيح -->
-<!--بداية عداد الزوار -->
-<script type="text/javascript">
-var sc_project=11819786; 
-var sc_invisible=0; 
-var sc_security="a12bcb4e"; 
-var scJsHost = (("https:" == document.location.protocol) ?
-"https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="http://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="//c.statcounter.com/11819786/0/a12bcb4e/0/" alt="Web
-Analytics"></a></div></noscript>
-<!--نهاية عداد الزوار --> 
-		</section>
-		
-	</main> <!-- .cd-main-content -->
+		<a href="#section2" class="cd-scroll-down cd-image-replace">scroll down</a>
+	</div>
+</section><!-- cd-section -->
 
-	<div class="cd-modal" data-modal="modal-trigger">
-		<div class="cd-svg-bg" 
-		data-step1="M-59.9,540.5l-0.9-1.4c-0.1-0.1,0-0.3,0.1-0.3L864.8-41c0.1-0.1,0.3,0,0.3,0.1l0.9,1.4c0.1,0.1,0,0.3-0.1,0.3L-59.5,540.6 C-59.6,540.7-59.8,540.7-59.9,540.5z" 
-		data-step2="M33.8,690l-188.2-300.3c-0.1-0.1,0-0.3,0.1-0.3l925.4-579.8c0.1-0.1,0.3,0,0.3,0.1L959.6,110c0.1,0.1,0,0.3-0.1,0.3 L34.1,690.1C34,690.2,33.9,690.1,33.8,690z" 
-		data-step3="M-465.1,287.5l-0.9-1.4c-0.1-0.1,0-0.3,0.1-0.3L459.5-294c0.1-0.1,0.3,0,0.3,0.1l0.9,1.4c0.1,0.1,0,0.3-0.1,0.3 l-925.4,579.8C-464.9,287.7-465,287.7-465.1,287.5z" 
-		data-step4="M-329.3,504.3l-272.5-435c-0.1-0.1,0-0.3,0.1-0.3l925.4-579.8c0.1-0.1,0.3,0,0.3,0.1l272.5,435c0.1,0.1,0,0.3-0.1,0.3 l-925.4,579.8C-329,504.5-329.2,504.5-329.3,504.3z" 
-		data-step5="M341.1,797.5l-0.9-1.4c-0.1-0.1,0-0.3,0.1-0.3L1265.8,216c0.1-0.1,0.3,0,0.3,0.1l0.9,1.4c0.1,0.1,0,0.3-0.1,0.3L341.5,797.6 C341.4,797.7,341.2,797.7,341.1,797.5z" 
-		data-step6="M476.4,1013.4L205,580.3c-0.1-0.1,0-0.3,0.1-0.3L1130.5,0.2c0.1-0.1,0.3,0,0.3,0.1l271.4,433.1c0.1,0.1,0,0.3-0.1,0.3 l-925.4,579.8C476.6,1013.6,476.5,1013.5,476.4,1013.4z">
-			<svg height="100%" width="100%" preserveAspectRatio="none" viewBox="0 0 800 500">
-				<title>SVG Modal background</title>
-				<path id="cd-changing-path-1" d="M-59.9,540.5l-0.9-1.4c-0.1-0.1,0-0.3,0.1-0.3L864.8-41c0.1-0.1,0.3,0,0.3,0.1l0.9,1.4c0.1,0.1,0,0.3-0.1,0.3L-59.5,540.6 C-59.6,540.7-59.8,540.7-59.9,540.5z"/>
-				<path id="cd-changing-path-2" d="M-465.1,287.5l-0.9-1.4c-0.1-0.1,0-0.3,0.1-0.3L459.5-294c0.1-0.1,0.3,0,0.3,0.1l0.9,1.4c0.1,0.1,0,0.3-0.1,0.3 l-925.4,579.8C-464.9,287.7-465,287.7-465.1,287.5z"/>
-				<path id="cd-changing-path-3" d="M341.1,797.5l-0.9-1.4c-0.1-0.1,0-0.3,0.1-0.3L1265.8,216c0.1-0.1,0.3,0,0.3,0.1l0.9,1.4c0.1,0.1,0,0.3-0.1,0.3L341.5,797.6 C341.4,797.7,341.2,797.7,341.1,797.5z"/>
-			</svg>
-		</div>
+<section id="section2" class="cd-section">
+	<div class="content-wrapper">
+		<h2>Events</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto numquam, totam iusto officia earum perferendis, culpa ad atque eveniet praesentium nobis expedita similique beatae tenetur. Distinctio vel tenetur, id cum.</p>
+	</div>
+</section><!-- cd-section -->
 
-		<div class="cd-modal-content">
-			<p align="right">
- في البداية تحتاج لجهاز كمبيوتر وتوصيل الهاتف بالأي تيونز ثم أخذ بك أب ( بدون تشفير ) ومن ثم تحميل تطبيق <a href="http://www.icopybot.com/itunes-backup-manager.htm" title="إضغط هنا للتحميل">iBackupBot</a> والذهاب للمسار التالي  SystemFiles/HomeDomain/Library/Preferences والبحث عن ملف com.apple.restrictionspassword.plist ثم فتحه ونسخ كود RestrictionsPasswordKey ولصقه في خيار كود Key ونسخ كود RestrictionsPasswordSalt ولصقه في خيار كود Salt ومن ثم البحث وانتظر حتى يجد الموقع الرقم السري  
-			</p>
-			<p align="right">
-وهنا تجد مقطع <a href="https://youtu.be/WzSlJfqZFos" title="مقطع فيديو"> فيديو </a> بشرح مفصل للطريقة .. يمكنك دعمي عبر <a href="https://www.paypal.me/iM03th" title="paypal"> PayPal </a> لتشجيعي لطرح المزيد ..  في حال رغبتك بالتواصل معي، يمكنك مراسلتي على <a href="https://twitter.com/iD70my" title="@iD70my" target="_blank">تويتر </a>  للرد على إستفساراتك أو التشرف بك كصديق .
-			</p>
-			
-			<p align="center">
-<B><font size="3" color="#dab433">إضغط على الكلمات الملونة للإنتقال<BR>  شكراً لزيارتك</font></B>
-			</p>
-		</div> <!-- cd-modal-content -->
-		<a href="#0" class="modal-close">Close</a>
-	</div> <!-- cd-modal -->
+<section id="section3" class="cd-section">
+	<div class="content-wrapper">
+		<h2>Help</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto numquam, totam iusto officia earum perferendis, culpa ad atque eveniet praesentium nobis expedita similique beatae tenetur. Distinctio vel tenetur, id cum.</p>
+	</div>
+</section><!-- cd-section -->
+
+<section id="section4" class="cd-section">
+	<div class="content-wrapper">
+		<h2>Share</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto numquam, totam iusto officia earum perferendis, culpa ad atque eveniet praesentium nobis expedita similique beatae tenetur. Distinctio vel tenetur, id cum.</p>
+	</div>
+</section><!-- cd-section -->
 	
-
-	<div class="cd-cover-layer"></div> <!-- .cd-cover-layer -->
 <script src="js/jquery-2.1.4.js"></script>
-<script src="js/snap.svg-min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
-<body onbeforeprint="onbeforeprint()" onafterprint="onafterprint()"
-onselectstart="return false" oncontextmenu="return false">
 </body>
 </html>
