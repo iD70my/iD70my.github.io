@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar" class="no-js">
+<html lang="ar" class="no-js" dir="rtl">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,13 +48,12 @@ h3 {font-size: 10pt; text-align: center;}
 </h2>
 <center><form name="pbkdf2form">
 <table>
-<tr><td>RestrictionsPasswordKey:</td><td colspan=2><input id="key" type="text" size="33"></td></tr><BR>
-<tr><td>RestrictionsPasswordSalt:</td><td><input id="salt" type="text" size="14"></td><td id="salt_status"></td></tr><BR>
-<tr><td><input id="passend" value="9999" type="text" size="11"><td>:نهاية البحث عند</td></td><BR>
-   <td><input id="password" value="0000" type="text" size="14"><td id="passcode_status"><td>:بداية البحث من</td></td></tr>
-<tr><td><input type="button" value="تجربة الرمز" onclick="test_code()"></td><BR>
-   <td><input type="button" value="بدء البحث" onclick="find_code()"></td>
-   <td><input type="button" value="إيقاف البحث" onclick="stop_searching()"></td></tr>
+<tr><td>RestrictionsPasswordKey:</td><td colspan=2><input id="key" type="text" size="33"></td></tr>
+<tr><td>RestrictionsPasswordSalt:</td><td><input id="salt" type="text" size="14"></td><td id="salt_status"></td></tr>
+<tr><td>بداية البحث من:</td><td><input id="password" value="0000" type="text" size="14"></td><td id="passcode_status">نهاية البحث عند:</td><td><input id="passend" value="9999" type="text" size="11"></td></tr>
+<tr><td></td>
+   <td><input type="button" value="بداية البحث" onclick="find_code()"></td><td></td>
+   <td><input type="button" value="نهاية البحث" onclick="stop_searching()"></td></tr>
 </table>
 </form></center>
 <div id="status"></div>
