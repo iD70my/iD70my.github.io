@@ -105,14 +105,14 @@ function main_func()
    this.try_code = function()
    {
       var code = CryptoJS.PBKDF2(pass, CryptoJS.enc.Base64.parse(salt), {keySize: 5, iterations: 1000});
-      display_message("<b>"+code.toString(CryptoJS.enc.Base64)+"</B> :والكود <b>"+pass+"</b> :رمز القيود "); 
+      display_message("<b>"+code.toString(CryptoJS.enc.Base64)+"</B> :جاري البحث "); 
     //alert("pass:"+pass+"  end:"+end+"   key:"+key+"   code:"+code+"   stopnow:"+stopnow);
       if (code.toString()==key) { 
         display_message("<b>مبروك وجدنا الرقم هو: "+pass+"</b>"); 
         document.getElementById("status").style.backgroundColor="yellow";
         alert("الرقم السري هو: " + pass);
       } else if (pass.toString()==end.toString() || stopnow==1) {
-        display_message("إيقاف... رمز القيود: <b>"+pass+"</b> والكود: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
+        display_message("إيقاف... البحث: <b>"+code.toString(CryptoJS.enc.Base64)+"</B>"); 
       } else {  //try again
          i++;
          pass = ("0000" + i).slice(-4);
