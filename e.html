@@ -1,0 +1,49 @@
+<table style="width: 400px; font-size: 9pt; font-family: Arial,sans-serif; line-height:normal;" cellpadding="0" cellspacing="0" class="ng-scope">
+<tbody>
+ <tr>	
+  <!-- ngIf: showField('logo') --><td ng-if="showField('logo')" style="width:86px; vertical-align:top;" valign="top" class="ng-scope">
+   <!-- ngIf: showField('logoURL') --><a ng-if="showField('logoURL')" href="http://im03th.net/" target="_blank" class="ng-scope"><img border="0" alt="Logo" height="86" width="86" style="width:86px; height:86px; border:0;" ng-src="https://id70my.github.io/logo1.png" src="https://id70my.github.io/logo1.png"></a><!-- end ngIf: showField('logoURL') -->
+   <!-- ngIf: !showField('logoURL') -->
+  </td><!-- end ngIf: showField('logo') -->
+  <!-- ngIf: !showField('logo') -->
+
+  <td style="width:38px; ; text-align:center; vertical-align:top;" valign="top">
+   <img border="0" alt="Logo" width="13" style="width:13px; height:86px; border:0;" ng-src="https://codetwocdn.azureedge.net/images/mail-signatures/generator//medium-banner/line.png" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator//medium-banner/line.png">
+  </td>
+  <td style="width:300px; vertical-align:top;" valign="top">
+   <table cellpadding="0" cellspacing="0">
+   <tbody>
+    <tr>
+     <td style="font-size:18pt; font-family: Arial, sans-serif; font-weight: bold; color: #3d3c3f; padding-bottom:5px;"><span style="font-family: Arial, sans-serif; color:#3c3c3b;" class="ng-binding">Abdulrahman Almabadi</span></td>
+    </tr>
+    <!-- ngIf: showField('title') --><tr ng-if="showField('title')" class="ng-scope">
+     <td style="font-size:11pt; font-family: Arial,sans-serif; font-weight: bold; color: #3d3c3f; padding-bottom:5px;"><span style="font-family: Arial, sans-serif; color:#3c3c3b;" class="ng-binding">AFIAP , QPSA , GPU CR1</span></td>
+    </tr><!-- end ngIf: showField('title') -->
+    <!-- ngIf: isAnyFieldEntered('phone,mobile') --><tr class="ng-scope" ng-if="isAnyFieldEntered('phone,mobile')">
+     
+     
+     <td style="font-size:9pt; font-family: Arial, sans-serif; color: #9b9b9b; padding-bottom:1px;"><!-- ngIf: showField('address1') --><span ng-if="showField('mobile')" style="font-family: Arial, sans-serif; color:#3c3c3b" class="ng-binding ng-scope"><span style="font-weight:bold;">M: </span>+966500940011</span><!-- end ngIf: showField('email') --><!-- ngIf: isEveryFieldEntered('email,website') --><span ng-if="isEveryFieldEntered('email,website')" style="font-family: Arial, sans-serif; color:#3c3c3b" class="ng-scope"> | </span><!-- end ngIf: isEveryFieldEntered('email,website') -->
+     <!-- ngIf: showField('website') --><span ng-if="showField('email')" style="font-family: Arial, sans-serif; color:#3c3c3b;" class="ng-binding ng-scope"><span style="font-weight:bold;">E: </span>im03th@hotmail.com</span><!-- end ngIf: showField('address2') -->
+     </td>
+    
+    
+    </tr><!-- end ngIf: isAnyFieldEntered('phone,mobile') -->				
+    <!-- ngIf: isAnyFieldEntered('email,website') --><tr ng-if="isAnyFieldEntered('email,website')" class="ng-scope">
+     
+     <td style="font-size:9pt; font-family: Arial, sans-serif; color: #9b9b9b; padding-bottom:1px;"><!-- ngIf: showField('address1') --><span ng-if="showField('address1')" style="font-family: Arial, sans-serif; color:#3c3c3b;" class="ng-binding ng-scope">Saudi Arabia - jeddah</span><!-- end ngIf: showField('address1') --><!-- ngIf: isEveryFieldEntered('address1,address2') --><span ng-if="isEveryFieldEntered('address1,address2')" style="font-family: Arial, sans-serif; color:#3c3c3b" class="ng-scope"> | </span><!-- end ngIf: isEveryFieldEntered('address1,address2') --><!-- ngIf: showField('address2') --><span ng-if="showField('address2')" style="font-family: Arial, sans-serif; color:#3c3c3b" class="ng-binding ng-scope">box 139429 jeddah 21323</span><!-- end ngIf: showField('address2') -->
+     </td>
+    
+    </tr><!-- end ngIf: isAnyFieldEntered('email,website') -->				
+    <!-- ngIf: isAnyFieldEntered('address1,address2') --><tr><td style="font-size:9pt; font-family: Arial, sans-serif; color: #9b9b9b; padding-bottom:1px;"><!-- ngIf: showField('phone') --><span ng-if="showField('phone')" style="font-family: Arial, sans-serif; color:#3c3c3b;" class="ng-binding ng-scope"><span style="font-weight:bold;">Email from: </span>the iPhone</span><!-- end ngIf: showField('phone') --><!-- ngIf: isEveryFieldEntered('phone,mobile') --><span ng-if="isEveryFieldEntered('phone,mobile')" style="font-family: Arial, sans-serif; color:#3c3c3b" class="ng-scope"> | </span><!-- end ngIf: isEveryFieldEntered('phone,mobile') --><!-- ngIf: showField('mobile') --><span ng-if="showField('website')" class="ng-scope"><a href="http://www.im03th.net" target="_blank"><!-- ngIf: showField('website') --><span ng-if="showField('website')" style="font-family: Arial, sans-serif; color:#1793d2" class="ng-binding ng-scope">www.im03th.net</span><!-- end ngIf: showField('website') --></a></span><!-- end ngIf: showField('mobile') -->
+     </td></tr><!-- end ngIf: isAnyFieldEntered('address1,address2') -->				
+    <!-- ngIf: isAnyFieldEntered('facebookURL,linkedinURL,twitterURL,youtubeURL,instagramURL') --><tr ng-if="isAnyFieldEntered('facebookURL,linkedinURL,twitterURL,youtubeURL,instagramURL')" class="ng-scope">
+     <td style="padding-top:10px; vertical-align: bottom;"><span style="display:inline-block; height:22px;"><!-- ngIf: showField('facebookURL') --><span ng-if="showField('facebookURL')" class="ng-scope"><a href="https://www.facebook.com/M03th" target="_blank"><img alt="Facebook icon" border="0" width="20" height="20" style="border:0; height:20px; width:20px" ng-src="https://codetwocdn.azureedge.net/images/mail-signatures/generator/medium-banner/fb.png" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator/medium-banner/fb.png"></a>&nbsp;</span><!-- end ngIf: showField('facebookURL') --><!-- ngIf: showField('linkedinURL') --><span ng-if="showField('linkedinURL')" class="ng-scope"><a href="https://www.linkedin.com/in/im03th/" target="_blank"><img alt="LinkedIn icon" border="0" width="20" height="20" style="border:0; height:20px; width:20px" ng-src="https://codetwocdn.azureedge.net/images/mail-signatures/generator/medium-banner/ln.png" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator/medium-banner/ln.png"></a>&nbsp;</span><!-- end ngIf: showField('linkedinURL') --><!-- ngIf: showField('twitterURL') --><span ng-if="showField('twitterURL')" class="ng-scope"><a href="https://twitter.com/im03th" target="_blank"><img alt="Twitter icon" border="0" width="20" height="20" style="border:0; height:20px; width:20px" ng-src="https://codetwocdn.azureedge.net/images/mail-signatures/generator/medium-banner/tt.png" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator/medium-banner/tt.png"></a>&nbsp;</span><!-- end ngIf: showField('twitterURL') --><!-- ngIf: showField('youtubeURL') --><!-- ngIf: showField('instagramURL') --><span ng-if="showField('instagramURL')" class="ng-scope"><a href="https://www.instagram.com/im03th/" target="_blank"><img alt="Instagram icon" border="0" width="20" height="20" style="border:0; height:20px; width:20px" ng-src="https://codetwocdn.azureedge.net/images/mail-signatures/generator/medium-banner/it.png" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator/medium-banner/it.png"></a></span><!-- end ngIf: showField('instagramURL') --></span>
+     </td>
+    </tr><!-- end ngIf: isAnyFieldEntered('facebookURL,linkedinURL,twitterURL,youtubeURL,instagramURL') -->
+   </tbody>
+   </table>
+  </td>
+ </tr>
+ <!-- ngIf: showField('banner') -->	
+</tbody>
+</table>
